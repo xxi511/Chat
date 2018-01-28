@@ -1,0 +1,493 @@
+BCSymbolMap Version: 2.0
+-[UIView(IQ_UIView_Hierarchy) viewController]
+-[UIView(IQ_UIView_Hierarchy) topMostController]
+-[UIView(IQ_UIView_Hierarchy) superviewOfClassType:]
+-[UIView(IQ_UIView_Hierarchy) _IQcanBecomeFirstResponder]
+-[UIView(IQ_UIView_Hierarchy) responderSiblings]
+-[UIView(IQ_UIView_Hierarchy) deepResponderViews]
+___49-[UIView(IQ_UIView_Hierarchy) deepResponderViews]_block_invoke
+___copy_helper_block_
+___destroy_helper_block_
+-[UIView(IQ_UIView_Hierarchy) convertTransformToView:]
+-[UIView(IQ_UIView_Hierarchy) depth]
+-[UIView(IQ_UIView_Hierarchy) subHierarchy]
+-[UIView(IQ_UIView_Hierarchy) superHierarchy]
+-[UIView(IQ_UIView_Hierarchy) debugHierarchy]
+-[UIView(IQ_UIView_Hierarchy) isSearchBarTextField]
+-[UIView(IQ_UIView_Hierarchy) isAlertViewTextField]
+-[NSObject(IQ_Logging) _IQDescription]
+___block_descriptor_tmp
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/Categories/IQUIView+Hierarchy.m
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager
+__destroy_helper_block_
+__copy_helper_block_
+__49-[UIView(IQ_UIView_Hierarchy) deepResponderViews]_block_invoke
+-[IQKeyboardReturnKeyHandler init]
+-[IQKeyboardReturnKeyHandler initWithViewController:]
+-[IQKeyboardReturnKeyHandler textFieldViewCachedInfo:]
+-[IQKeyboardReturnKeyHandler addResponderFromView:]
+-[IQKeyboardReturnKeyHandler removeResponderFromView:]
+-[IQKeyboardReturnKeyHandler removeTextFieldView:]
+-[IQKeyboardReturnKeyHandler addTextFieldView:]
+-[IQKeyboardReturnKeyHandler updateReturnKeyTypeOnTextField:]
+-[IQKeyboardReturnKeyHandler goToNextResponderOrResign:]
+-[IQKeyboardReturnKeyHandler textFieldShouldBeginEditing:]
+-[IQKeyboardReturnKeyHandler textFieldDidBeginEditing:]
+-[IQKeyboardReturnKeyHandler textFieldShouldEndEditing:]
+-[IQKeyboardReturnKeyHandler textFieldDidEndEditing:]
+-[IQKeyboardReturnKeyHandler textFieldDidEndEditing:reason:]
+-[IQKeyboardReturnKeyHandler textField:shouldChangeCharactersInRange:replacementString:]
+-[IQKeyboardReturnKeyHandler textFieldShouldClear:]
+-[IQKeyboardReturnKeyHandler textFieldShouldReturn:]
+-[IQKeyboardReturnKeyHandler textViewShouldBeginEditing:]
+-[IQKeyboardReturnKeyHandler textViewShouldEndEditing:]
+-[IQKeyboardReturnKeyHandler textViewDidBeginEditing:]
+-[IQKeyboardReturnKeyHandler textViewDidEndEditing:]
+-[IQKeyboardReturnKeyHandler textView:shouldChangeTextInRange:replacementText:]
+-[IQKeyboardReturnKeyHandler textViewDidChange:]
+-[IQKeyboardReturnKeyHandler textViewDidChangeSelection:]
+-[IQKeyboardReturnKeyHandler textView:shouldInteractWithURL:inRange:interaction:]
+-[IQKeyboardReturnKeyHandler textView:shouldInteractWithTextAttachment:inRange:interaction:]
+-[IQKeyboardReturnKeyHandler textView:shouldInteractWithURL:inRange:]
+-[IQKeyboardReturnKeyHandler textView:shouldInteractWithTextAttachment:inRange:]
+-[IQKeyboardReturnKeyHandler dealloc]
+-[IQKeyboardReturnKeyHandler lastTextFieldReturnKeyType]
+-[IQKeyboardReturnKeyHandler setLastTextFieldReturnKeyType:]
+-[IQKeyboardReturnKeyHandler delegate]
+-[IQKeyboardReturnKeyHandler setDelegate:]
+-[IQKeyboardReturnKeyHandler .cxx_destruct]
+_OBJC_IVAR_$_IQKeyboardReturnKeyHandler.textFieldInfoCache
+_OBJC_IVAR_$_IQKeyboardReturnKeyHandler._lastTextFieldReturnKeyType
+_OBJC_IVAR_$_IQKeyboardReturnKeyHandler._delegate
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_PROTOCOL_$_UITextFieldDelegate
+l_OBJC_LABEL_PROTOCOL_$_UITextFieldDelegate
+l_OBJC_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIScrollViewDelegate
+l_OBJC_PROTOCOL_$_UITextViewDelegate
+l_OBJC_LABEL_PROTOCOL_$_UITextViewDelegate
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQKeyboardReturnKeyHandler.m
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQKeyboardReturnKeyHandler.h
++[IQKeyboardManager load]
+-[IQKeyboardManager init]
+___25-[IQKeyboardManager init]_block_invoke
++[IQKeyboardManager sharedManager]
+___34+[IQKeyboardManager sharedManager]_block_invoke
+___copy_helper_block_.90
+___destroy_helper_block_.91
+-[IQKeyboardManager dealloc]
+-[IQKeyboardManager setEnable:]
+-[IQKeyboardManager privateIsEnabled]
+-[IQKeyboardManager shouldShowTextFieldPlaceholder]
+-[IQKeyboardManager setShouldShowTextFieldPlaceholder:]
+-[IQKeyboardManager setKeyboardDistanceFromTextField:]
+-[IQKeyboardManager setShouldResignOnTouchOutside:]
+-[IQKeyboardManager privateShouldResignOnTouchOutside]
+-[IQKeyboardManager setEnableAutoToolbar:]
+-[IQKeyboardManager privateIsEnableAutoToolbar]
+-[IQKeyboardManager keyWindow]
+-[IQKeyboardManager setRootViewFrame:]
+___38-[IQKeyboardManager setRootViewFrame:]_block_invoke
+___copy_helper_block_.191
+___destroy_helper_block_.192
+-[IQKeyboardManager adjustFrame]
+___32-[IQKeyboardManager adjustFrame]_block_invoke
+___copy_helper_block_.231
+___destroy_helper_block_.232
+___32-[IQKeyboardManager adjustFrame]_block_invoke.238
+___copy_helper_block_.239
+___destroy_helper_block_.240
+___32-[IQKeyboardManager adjustFrame]_block_invoke.257
+___copy_helper_block_.264
+___destroy_helper_block_.265
+___32-[IQKeyboardManager adjustFrame]_block_invoke.269
+___copy_helper_block_.270
+___destroy_helper_block_.271
+___32-[IQKeyboardManager adjustFrame]_block_invoke.277
+___copy_helper_block_.284
+___destroy_helper_block_.285
+___32-[IQKeyboardManager adjustFrame]_block_invoke.287
+___copy_helper_block_.288
+___destroy_helper_block_.289
+___32-[IQKeyboardManager adjustFrame]_block_invoke.291
+___copy_helper_block_.306
+___destroy_helper_block_.307
+-[IQKeyboardManager reloadLayoutIfNeeded]
+-[IQKeyboardManager keyboardWillShow:]
+-[IQKeyboardManager keyboardDidShow:]
+___37-[IQKeyboardManager keyboardDidShow:]_block_invoke
+___copy_helper_block_.354
+___destroy_helper_block_.355
+-[IQKeyboardManager keyboardWillHide:]
+___38-[IQKeyboardManager keyboardWillHide:]_block_invoke
+___copy_helper_block_.365
+___destroy_helper_block_.366
+___38-[IQKeyboardManager keyboardWillHide:]_block_invoke.368
+___copy_helper_block_.377
+___destroy_helper_block_.378
+___38-[IQKeyboardManager keyboardWillHide:]_block_invoke.380
+___copy_helper_block_.381
+___destroy_helper_block_.382
+-[IQKeyboardManager keyboardDidHide:]
+-[IQKeyboardManager textFieldViewDidBeginEditing:]
+___50-[IQKeyboardManager textFieldViewDidBeginEditing:]_block_invoke
+___copy_helper_block_.394
+___destroy_helper_block_.395
+___50-[IQKeyboardManager textFieldViewDidBeginEditing:]_block_invoke.397
+___copy_helper_block_.398
+___destroy_helper_block_.399
+-[IQKeyboardManager textFieldViewDidEndEditing:]
+___48-[IQKeyboardManager textFieldViewDidEndEditing:]_block_invoke
+___copy_helper_block_.412
+___destroy_helper_block_.413
+-[IQKeyboardManager willChangeStatusBarOrientation:]
+___52-[IQKeyboardManager willChangeStatusBarOrientation:]_block_invoke
+___copy_helper_block_.415
+___destroy_helper_block_.416
+-[IQKeyboardManager didChangeStatusBarFrame:]
+-[IQKeyboardManager tapRecognized:]
+-[IQKeyboardManager gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:]
+-[IQKeyboardManager gestureRecognizer:shouldReceiveTouch:]
+-[IQKeyboardManager resignFirstResponder]
+-[IQKeyboardManager canGoPrevious]
+-[IQKeyboardManager canGoNext]
+-[IQKeyboardManager goPrevious]
+-[IQKeyboardManager goNext]
+-[IQKeyboardManager responderViews]
+-[IQKeyboardManager addToolbarIfRequired]
+-[IQKeyboardManager removeToolbarIfRequired]
+-[IQKeyboardManager reloadInputViews]
+-[IQKeyboardManager previousAction:]
+-[IQKeyboardManager nextAction:]
+-[IQKeyboardManager doneAction:]
+-[IQKeyboardManager registerTextFieldViewClass:didBeginEditingNotificationName:didEndEditingNotificationName:]
+-[IQKeyboardManager unregisterTextFieldViewClass:didBeginEditingNotificationName:didEndEditingNotificationName:]
+-[IQKeyboardManager registerAllNotifications]
+-[IQKeyboardManager unregisterAllNotifications]
+-[IQKeyboardManager showLog:]
+-[IQKeyboardManager isEnabled]
+-[IQKeyboardManager keyboardDistanceFromTextField]
+-[IQKeyboardManager preventShowingBottomBlankSpace]
+-[IQKeyboardManager setPreventShowingBottomBlankSpace:]
+-[IQKeyboardManager overrideKeyboardAppearance]
+-[IQKeyboardManager setOverrideKeyboardAppearance:]
+-[IQKeyboardManager keyboardAppearance]
+-[IQKeyboardManager setKeyboardAppearance:]
+-[IQKeyboardManager isEnableAutoToolbar]
+-[IQKeyboardManager toolbarManageBehaviour]
+-[IQKeyboardManager setToolbarManageBehaviour:]
+-[IQKeyboardManager shouldToolbarUsesTextFieldTintColor]
+-[IQKeyboardManager setShouldToolbarUsesTextFieldTintColor:]
+-[IQKeyboardManager toolbarTintColor]
+-[IQKeyboardManager setToolbarTintColor:]
+-[IQKeyboardManager toolbarBarTintColor]
+-[IQKeyboardManager setToolbarBarTintColor:]
+-[IQKeyboardManager shouldShowToolbarPlaceholder]
+-[IQKeyboardManager setShouldShowToolbarPlaceholder:]
+-[IQKeyboardManager placeholderFont]
+-[IQKeyboardManager setPlaceholderFont:]
+-[IQKeyboardManager shouldResignOnTouchOutside]
+-[IQKeyboardManager resignFirstResponderGesture]
+-[IQKeyboardManager setResignFirstResponderGesture:]
+-[IQKeyboardManager shouldPlayInputClicks]
+-[IQKeyboardManager setShouldPlayInputClicks:]
+-[IQKeyboardManager layoutIfNeededOnUpdate]
+-[IQKeyboardManager setLayoutIfNeededOnUpdate:]
+-[IQKeyboardManager isKeyboardShowing]
+-[IQKeyboardManager movedDistance]
+-[IQKeyboardManager setMovedDistance:]
+-[IQKeyboardManager previousNextDisplayMode]
+-[IQKeyboardManager setPreviousNextDisplayMode:]
+-[IQKeyboardManager toolbarDoneBarButtonItemImage]
+-[IQKeyboardManager setToolbarDoneBarButtonItemImage:]
+-[IQKeyboardManager toolbarDoneBarButtonItemText]
+-[IQKeyboardManager setToolbarDoneBarButtonItemText:]
+-[IQKeyboardManager shouldFixInteractivePopGestureRecognizer]
+-[IQKeyboardManager setShouldFixInteractivePopGestureRecognizer:]
+-[IQKeyboardManager canAdjustAdditionalSafeAreaInsets]
+-[IQKeyboardManager setCanAdjustAdditionalSafeAreaInsets:]
+-[IQKeyboardManager disabledDistanceHandlingClasses]
+-[IQKeyboardManager setDisabledDistanceHandlingClasses:]
+-[IQKeyboardManager enabledDistanceHandlingClasses]
+-[IQKeyboardManager setEnabledDistanceHandlingClasses:]
+-[IQKeyboardManager disabledToolbarClasses]
+-[IQKeyboardManager setDisabledToolbarClasses:]
+-[IQKeyboardManager enabledToolbarClasses]
+-[IQKeyboardManager setEnabledToolbarClasses:]
+-[IQKeyboardManager toolbarPreviousNextAllowedClasses]
+-[IQKeyboardManager setToolbarPreviousNextAllowedClasses:]
+-[IQKeyboardManager disabledTouchResignedClasses]
+-[IQKeyboardManager setDisabledTouchResignedClasses:]
+-[IQKeyboardManager enabledTouchResignedClasses]
+-[IQKeyboardManager setEnabledTouchResignedClasses:]
+-[IQKeyboardManager touchResignedGestureIgnoreClasses]
+-[IQKeyboardManager setTouchResignedGestureIgnoreClasses:]
+-[IQKeyboardManager enableDebugging]
+-[IQKeyboardManager setEnableDebugging:]
+-[IQKeyboardManager startingTextViewContentInsets]
+-[IQKeyboardManager setStartingTextViewContentInsets:]
+-[IQKeyboardManager startingTextViewScrollIndicatorInsets]
+-[IQKeyboardManager setStartingTextViewScrollIndicatorInsets:]
+-[IQKeyboardManager isTextViewContentInsetChanged]
+-[IQKeyboardManager setIsTextViewContentInsetChanged:]
+-[IQKeyboardManager textFieldView]
+-[IQKeyboardManager setTextFieldView:]
+-[IQKeyboardManager topViewBeginRect]
+-[IQKeyboardManager setTopViewBeginRect:]
+-[IQKeyboardManager rootViewController]
+-[IQKeyboardManager setRootViewController:]
+-[IQKeyboardManager initialAdditionalSafeAreaInsets]
+-[IQKeyboardManager setInitialAdditionalSafeAreaInsets:]
+-[IQKeyboardManager layoutGuideConstraintInitialConstant]
+-[IQKeyboardManager setLayoutGuideConstraintInitialConstant:]
+-[IQKeyboardManager layoutGuideConstraint]
+-[IQKeyboardManager setLayoutGuideConstraint:]
+-[IQKeyboardManager lastScrollView]
+-[IQKeyboardManager setLastScrollView:]
+-[IQKeyboardManager startingContentInsets]
+-[IQKeyboardManager setStartingContentInsets:]
+-[IQKeyboardManager startingScrollIndicatorInsets]
+-[IQKeyboardManager setStartingScrollIndicatorInsets:]
+-[IQKeyboardManager startingContentOffset]
+-[IQKeyboardManager setStartingContentOffset:]
+-[IQKeyboardManager animationDuration]
+-[IQKeyboardManager setAnimationDuration:]
+-[IQKeyboardManager animationCurve]
+-[IQKeyboardManager setAnimationCurve:]
+-[IQKeyboardManager registeredClasses]
+-[IQKeyboardManager setRegisteredClasses:]
+-[IQKeyboardManager .cxx_destruct]
+_init.onceToken
+_sharedManager.kbManager
+_sharedManager.onceToken
+___block_descriptor_tmp.92
+_OBJC_IVAR_$_IQKeyboardManager._enable
+_OBJC_IVAR_$_IQKeyboardManager._kbShowNotification
+_OBJC_IVAR_$_IQKeyboardManager._textFieldView
+_OBJC_IVAR_$_IQKeyboardManager._enabledDistanceHandlingClasses
+_OBJC_IVAR_$_IQKeyboardManager._disabledDistanceHandlingClasses
+_OBJC_IVAR_$_IQKeyboardManager._shouldShowToolbarPlaceholder
+_OBJC_IVAR_$_IQKeyboardManager._keyboardDistanceFromTextField
+_OBJC_IVAR_$_IQKeyboardManager._shouldResignOnTouchOutside
+_OBJC_IVAR_$_IQKeyboardManager._resignFirstResponderGesture
+_OBJC_IVAR_$_IQKeyboardManager._enabledTouchResignedClasses
+_OBJC_IVAR_$_IQKeyboardManager._disabledTouchResignedClasses
+_OBJC_IVAR_$_IQKeyboardManager._enableAutoToolbar
+_OBJC_IVAR_$_IQKeyboardManager._enabledToolbarClasses
+_OBJC_IVAR_$_IQKeyboardManager._disabledToolbarClasses
+_keyWindow._keyWindow
+_OBJC_IVAR_$_IQKeyboardManager._topViewBeginRect
+_OBJC_IVAR_$_IQKeyboardManager._animationDuration
+_OBJC_IVAR_$_IQKeyboardManager._animationCurve
+___block_descriptor_tmp.193
+_OBJC_IVAR_$_IQKeyboardManager._kbSize
+_OBJC_IVAR_$_IQKeyboardManager._layoutGuideConstraint
+_OBJC_IVAR_$_IQKeyboardManager._lastScrollView
+_OBJC_IVAR_$_IQKeyboardManager._startingContentInsets
+_OBJC_IVAR_$_IQKeyboardManager._startingContentOffset
+___block_descriptor_tmp.233
+_OBJC_IVAR_$_IQKeyboardManager._startingScrollIndicatorInsets
+___block_descriptor_tmp.241
+___block_descriptor_tmp.266
+___block_descriptor_tmp.272
+_OBJC_IVAR_$_IQKeyboardManager._layoutGuideConstraintInitialConstant
+___block_descriptor_tmp.286
+___block_descriptor_tmp.290
+___block_descriptor_tmp.308
+_OBJC_IVAR_$_IQKeyboardManager._preventShowingBottomBlankSpace
+_OBJC_IVAR_$_IQKeyboardManager._movedDistance
+_OBJC_IVAR_$_IQKeyboardManager._keyboardShowing
+_OBJC_IVAR_$_IQKeyboardManager._rootViewController
+_OBJC_IVAR_$_IQKeyboardManager._shouldFixInteractivePopGestureRecognizer
+___block_descriptor_tmp.356
+___block_descriptor_tmp.367
+___block_descriptor_tmp.379
+___block_descriptor_tmp.383
+_OBJC_IVAR_$_IQKeyboardManager._overrideKeyboardAppearance
+_OBJC_IVAR_$_IQKeyboardManager._keyboardAppearance
+___block_descriptor_tmp.396
+___block_descriptor_tmp.401
+_OBJC_IVAR_$_IQKeyboardManager._isTextViewContentInsetChanged
+___block_descriptor_tmp.414
+___block_descriptor_tmp.417
+_OBJC_IVAR_$_IQKeyboardManager._statusBarFrame
+_OBJC_IVAR_$_IQKeyboardManager._toolbarPreviousNextAllowedClasses
+_OBJC_IVAR_$_IQKeyboardManager._toolbarManageBehaviour
+_OBJC_IVAR_$_IQKeyboardManager._toolbarDoneBarButtonItemImage
+_OBJC_IVAR_$_IQKeyboardManager._toolbarDoneBarButtonItemText
+_OBJC_IVAR_$_IQKeyboardManager._toolbarBarTintColor
+_OBJC_IVAR_$_IQKeyboardManager._shouldToolbarUsesTextFieldTintColor
+_OBJC_IVAR_$_IQKeyboardManager._toolbarTintColor
+_OBJC_IVAR_$_IQKeyboardManager._placeholderFont
+_OBJC_IVAR_$_IQKeyboardManager._shouldPlayInputClicks
+_OBJC_IVAR_$_IQKeyboardManager._registeredClasses
+_OBJC_IVAR_$_IQKeyboardManager._enableDebugging
+_OBJC_IVAR_$_IQKeyboardManager._layoutIfNeededOnUpdate
+_OBJC_IVAR_$_IQKeyboardManager._previousNextDisplayMode
+_OBJC_IVAR_$_IQKeyboardManager._canAdjustAdditionalSafeAreaInsets
+_OBJC_IVAR_$_IQKeyboardManager._touchResignedGestureIgnoreClasses
+_OBJC_IVAR_$_IQKeyboardManager._startingTextViewContentInsets
+_OBJC_IVAR_$_IQKeyboardManager._startingTextViewScrollIndicatorInsets
+_OBJC_IVAR_$_IQKeyboardManager._initialAdditionalSafeAreaInsets
+l_OBJC_PROTOCOL_$_UIGestureRecognizerDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIGestureRecognizerDelegate
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQKeyboardManager.m
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQKeyboardManager.h
+__CGSizeEqualToSize
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+__52-[IQKeyboardManager willChangeStatusBarOrientation:]_block_invoke
+UIEdgeInsetsEqualToEdgeInsets
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIGeometry.h
+__48-[IQKeyboardManager textFieldViewDidEndEditing:]_block_invoke
+__50-[IQKeyboardManager textFieldViewDidBeginEditing:]_block_invoke.397
+__50-[IQKeyboardManager textFieldViewDidBeginEditing:]_block_invoke
+__38-[IQKeyboardManager keyboardWillHide:]_block_invoke.380
+__38-[IQKeyboardManager keyboardWillHide:]_block_invoke.368
+__38-[IQKeyboardManager keyboardWillHide:]_block_invoke
+__37-[IQKeyboardManager keyboardDidShow:]_block_invoke
+__32-[IQKeyboardManager adjustFrame]_block_invoke.291
+__32-[IQKeyboardManager adjustFrame]_block_invoke.287
+__32-[IQKeyboardManager adjustFrame]_block_invoke.277
+__32-[IQKeyboardManager adjustFrame]_block_invoke.269
+__32-[IQKeyboardManager adjustFrame]_block_invoke.257
+__32-[IQKeyboardManager adjustFrame]_block_invoke.238
+__32-[IQKeyboardManager adjustFrame]_block_invoke
+__38-[IQKeyboardManager setRootViewFrame:]_block_invoke
+__34+[IQKeyboardManager sharedManager]_block_invoke
+_dispatch_once
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/usr/include/dispatch/once.h
+__25-[IQKeyboardManager init]_block_invoke
+-[UIViewController(Additions) setIQLayoutGuideConstraint:]
+-[UIViewController(Additions) IQLayoutGuideConstraint]
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/Categories/IQUIViewController+Additions.m
+-[UIView(Additions) setKeyboardDistanceFromTextField:]
+-[UIView(Additions) keyboardDistanceFromTextField]
+-[UIView(Additions) setIgnoreSwitchingByNextPrevious:]
+-[UIView(Additions) ignoreSwitchingByNextPrevious]
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/Categories/IQUITextFieldView+Additions.m
+-[UIWindow(IQ_UIWindow_Hierarchy) topMostWindowController]
+-[UIWindow(IQ_UIWindow_Hierarchy) currentViewController]
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/Categories/IQUIWindow+Hierarchy.m
++[IQBarButtonItem initialize]
+-[IQBarButtonItem setTintColor:]
+-[IQBarButtonItem initWithBarButtonSystemItem:target:action:]
+-[IQBarButtonItem setTarget:action:]
+-[IQBarButtonItem isSystemItem]
+-[IQBarButtonItem invocation]
+-[IQBarButtonItem setInvocation:]
+-[IQBarButtonItem .cxx_destruct]
+_OBJC_IVAR_$_IQBarButtonItem._isSystemItem
+_OBJC_IVAR_$_IQBarButtonItem._invocation
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQToolbar/IQBarButtonItem.m
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQToolbar/IQBarButtonItem.h
+-[NSArray(IQ_NSArray_Sort) sortedArrayByTag]
+___44-[NSArray(IQ_NSArray_Sort) sortedArrayByTag]_block_invoke
+-[NSArray(IQ_NSArray_Sort) sortedArrayByPosition]
+___49-[NSArray(IQ_NSArray_Sort) sortedArrayByPosition]_block_invoke
+___block_literal_global
+___block_descriptor_tmp.5
+___block_literal_global.6
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/Categories/IQNSArray+Sort.m
+__49-[NSArray(IQ_NSArray_Sort) sortedArrayByPosition]_block_invoke
+__44-[NSArray(IQ_NSArray_Sort) sortedArrayByTag]_block_invoke
+-[IQTextView initialize]
+-[IQTextView dealloc]
+-[IQTextView init]
+-[IQTextView awakeFromNib]
+-[IQTextView refreshPlaceholder]
+-[IQTextView setText:]
+-[IQTextView setFont:]
+-[IQTextView setTextAlignment:]
+-[IQTextView layoutSubviews]
+-[IQTextView setPlaceholder:]
+-[IQTextView delegate]
+-[IQTextView placeholder]
+-[IQTextView .cxx_destruct]
+_OBJC_IVAR_$_IQTextView.placeHolderLabel
+_OBJC_IVAR_$_IQTextView._placeholder
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQTextView/IQTextView.m
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQTextView/IQTextView.h
+-[IQTitleBarButtonItem initWithTitle:]
+-[IQTitleBarButtonItem setTitleFont:]
+-[IQTitleBarButtonItem setTitle:]
+-[IQTitleBarButtonItem setSelectableTextColor:]
+-[IQTitleBarButtonItem setInvocation:]
+-[IQTitleBarButtonItem titleFont]
+-[IQTitleBarButtonItem selectableTextColor]
+-[IQTitleBarButtonItem .cxx_destruct]
+_OBJC_IVAR_$_IQTitleBarButtonItem._titleView
+_OBJC_IVAR_$_IQTitleBarButtonItem._titleButton
+_OBJC_IVAR_$_IQTitleBarButtonItem._titleFont
+_OBJC_IVAR_$_IQTitleBarButtonItem._selectableTextColor
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.m
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.h
+-[UIScrollView(Additions) setShouldIgnoreScrollingAdjustment:]
+-[UIScrollView(Additions) shouldIgnoreScrollingAdjustment]
+-[UIScrollView(Additions) setShouldRestoreScrollViewContentOffset:]
+-[UIScrollView(Additions) shouldRestoreScrollViewContentOffset]
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/Categories/IQUIScrollView+Additions.m
+-[UIView(IQToolbarAddition) keyboardToolbar]
+-[UIView(IQToolbarAddition) setShouldHideToolbarPlaceholder:]
+-[UIView(IQToolbarAddition) shouldHideToolbarPlaceholder]
+-[UIView(IQToolbarAddition) setShouldHidePlaceholderText:]
+-[UIView(IQToolbarAddition) shouldHidePlaceholderText]
+-[UIView(IQToolbarAddition) setToolbarPlaceholder:]
+-[UIView(IQToolbarAddition) toolbarPlaceholder]
+-[UIView(IQToolbarAddition) setPlaceholderText:]
+-[UIView(IQToolbarAddition) placeholderText]
+-[UIView(IQToolbarAddition) drawingToolbarPlaceholder]
+-[UIView(IQToolbarAddition) drawingPlaceholderText]
++[UIView(IQToolbarAddition) flexibleBarButtonItem]
+-[UIView(IQToolbarAddition) addRightButtonOnKeyboardWithImage:target:action:titleText:]
+-[UIView(IQToolbarAddition) addRightButtonOnKeyboardWithImage:target:action:shouldShowPlaceholder:]
+-[UIView(IQToolbarAddition) addRightButtonOnKeyboardWithText:target:action:titleText:]
+-[UIView(IQToolbarAddition) addRightButtonOnKeyboardWithText:target:action:shouldShowPlaceholder:]
+-[UIView(IQToolbarAddition) addRightButtonOnKeyboardWithText:target:action:]
+-[UIView(IQToolbarAddition) addDoneOnKeyboardWithTarget:action:titleText:]
+-[UIView(IQToolbarAddition) addDoneOnKeyboardWithTarget:action:shouldShowPlaceholder:]
+-[UIView(IQToolbarAddition) addDoneOnKeyboardWithTarget:action:]
+-[UIView(IQToolbarAddition) addLeftRightOnKeyboardWithTarget:leftButtonTitle:rightButtonTitle:leftButtonAction:rightButtonAction:titleText:]
+-[UIView(IQToolbarAddition) addLeftRightOnKeyboardWithTarget:leftButtonTitle:rightButtonTitle:leftButtonAction:rightButtonAction:shouldShowPlaceholder:]
+-[UIView(IQToolbarAddition) addLeftRightOnKeyboardWithTarget:leftButtonTitle:rightButtonTitle:leftButtonAction:rightButtonAction:]
+-[UIView(IQToolbarAddition) addCancelDoneOnKeyboardWithTarget:cancelAction:doneAction:titleText:]
+-[UIView(IQToolbarAddition) addCancelDoneOnKeyboardWithTarget:cancelAction:doneAction:shouldShowPlaceholder:]
+-[UIView(IQToolbarAddition) addCancelDoneOnKeyboardWithTarget:cancelAction:doneAction:]
+-[UIView(IQToolbarAddition) addPreviousNextDoneOnKeyboardWithTarget:previousAction:nextAction:doneAction:titleText:]
+-[UIView(IQToolbarAddition) addPreviousNextDoneOnKeyboardWithTarget:previousAction:nextAction:doneAction:shouldShowPlaceholder:]
+-[UIView(IQToolbarAddition) addPreviousNextDoneOnKeyboardWithTarget:previousAction:nextAction:doneAction:]
+-[UIView(IQToolbarAddition) addPreviousNextRightOnKeyboardWithTarget:rightButtonImage:previousAction:nextAction:rightButtonAction:titleText:]
+-[UIView(IQToolbarAddition) addPreviousNextRightOnKeyboardWithTarget:rightButtonImage:previousAction:nextAction:rightButtonAction:shouldShowPlaceholder:]
+-[UIView(IQToolbarAddition) addPreviousNextRightOnKeyboardWithTarget:rightButtonTitle:previousAction:nextAction:rightButtonAction:titleText:]
+-[UIView(IQToolbarAddition) addPreviousNextRightOnKeyboardWithTarget:rightButtonTitle:previousAction:nextAction:rightButtonAction:shouldShowPlaceholder:]
+-[UIView(IQToolbarAddition) addPreviousNextRightOnKeyboardWithTarget:rightButtonTitle:previousAction:nextAction:rightButtonAction:]
+_flexibleBarButtonItem.nilButton
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.m
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQToolbar/IQPreviousNextView.m
++[IQToolbar initialize]
+-[IQToolbar initialize]
+-[IQToolbar initWithFrame:]
+-[IQToolbar initWithCoder:]
+-[IQToolbar previousBarButton]
+-[IQToolbar nextBarButton]
+-[IQToolbar titleBarButton]
+-[IQToolbar doneBarButton]
+-[IQToolbar sizeThatFits:]
+-[IQToolbar setBarStyle:]
+-[IQToolbar setTintColor:]
+-[IQToolbar layoutSubviews]
+-[IQToolbar enableInputClicksWhenVisible]
+-[IQToolbar setPreviousBarButton:]
+-[IQToolbar setNextBarButton:]
+-[IQToolbar setDoneBarButton:]
+-[IQToolbar .cxx_destruct]
+_OBJC_IVAR_$_IQToolbar._previousBarButton
+_OBJC_IVAR_$_IQToolbar._nextBarButton
+_OBJC_IVAR_$_IQToolbar._titleBarButton
+_OBJC_IVAR_$_IQToolbar._doneBarButton
+l_OBJC_PROTOCOL_$_UIInputViewAudioFeedback
+l_OBJC_LABEL_PROTOCOL_$_UIInputViewAudioFeedback
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQToolbar/IQToolbar.m
+/Users/codegreen/Desktop/G4HChat/Carthage/Checkouts/IQKeyboardManager/IQKeyboardManager/IQToolbar/IQToolbar.h
+/Users/codegreen/Library/Caches/org.carthage.CarthageKit/DerivedData/9.2_9C40b/IQKeyboardManager/v5.0.7/Build/Intermediates.noindex/ArchiveIntermediates/IQKeyboardManager/IntermediateBuildFilesPath/IQKeyboardManager.build/Release-iphoneos/IQKeyboardManager.build/DerivedSources/IQKeyboardManager_vers.c

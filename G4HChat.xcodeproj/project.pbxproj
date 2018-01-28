@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A31E956020138985009A929C /* CtrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31E955F20138985009A929C /* CtrlModel.swift */; };
+		A31E95622013A2A0009A929C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31E95612013A29F009A929C /* ToastSwiftFramework.framework */; };
+		A384329B201C2D4F00C7BF03 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A384329A201C2D4F00C7BF03 /* Starscream.framework */; };
+		A384329D201C2D6300C7BF03 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A384329C201C2D6300C7BF03 /* RealmSwift.framework */; };
+		A38432A5201C3BF300C7BF03 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38432A4201C3BF300C7BF03 /* UserModel.swift */; };
+		A38432A9201C6D3200C7BF03 /* WebSocketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38432A8201C6D3200C7BF03 /* WebSocketProtocol.swift */; };
+		A38432AB201C74C300C7BF03 /* ViewControllerEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38432AA201C74C300C7BF03 /* ViewControllerEX.swift */; };
+		A38432AD201C75F900C7BF03 /* SubcribeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38432AC201C75F900C7BF03 /* SubcribeModel.swift */; };
+		A38432B6201C7F1400C7BF03 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38432B5201C7F1400C7BF03 /* HomeVC.swift */; };
+		A38432BA201CB8DC00C7BF03 /* MetaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38432B9201CB8DC00C7BF03 /* MetaModel.swift */; };
+		A38432BF201CCC3000C7BF03 /* ChatInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38432BD201CCC3000C7BF03 /* ChatInfoCell.swift */; };
+		A38432C0201CCC3000C7BF03 /* ChatInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38432BE201CCC3000C7BF03 /* ChatInfoCell.xib */; };
+		A38432C2201CD2FD00C7BF03 /* ViewEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38432C1201CD2FD00C7BF03 /* ViewEX.swift */; };
+		A393473D201243630072D520 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393473C201243630072D520 /* WebSocketManager.swift */; };
+		A3934740201245820072D520 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393473F201245820072D520 /* Configure.swift */; };
+		A3934743201256660072D520 /* StringEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3934742201256660072D520 /* StringEX.swift */; };
+		A3A36A9820132D4A00348F7B /* HiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A36A9720132D4A00348F7B /* HiModel.swift */; };
+		A3A36A9B2013326600348F7B /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A36A9A2013326600348F7B /* LoginModel.swift */; };
+		A3A3E1D2201D7AA50010EAA5 /* ColorEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3E1D1201D7AA40010EAA5 /* ColorEX.swift */; };
+		A3A3E1D4201D7E9D0010EAA5 /* PresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3E1D3201D7E9D0010EAA5 /* PresModel.swift */; };
+		A3DCCFA5201237D1002A6C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DCCFA4201237D1002A6C5F /* AppDelegate.swift */; };
+		A3DCCFA7201237D1002A6C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DCCFA6201237D1002A6C5F /* LoginVC.swift */; };
+		A3DCCFAA201237D1002A6C5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3DCCFA8201237D1002A6C5F /* Main.storyboard */; };
+		A3DCCFAC201237D1002A6C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3DCCFAB201237D1002A6C5F /* Assets.xcassets */; };
+		A3DCCFAF201237D1002A6C5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3DCCFAD201237D1002A6C5F /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A31E955F20138985009A929C /* CtrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CtrlModel.swift; sourceTree = "<group>"; };
+		A31E95612013A29F009A929C /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
+		A384329A201C2D4F00C7BF03 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
+		A384329C201C2D6300C7BF03 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		A384329E201C2D7600C7BF03 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		A38432A4201C3BF300C7BF03 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		A38432A8201C6D3200C7BF03 /* WebSocketProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketProtocol.swift; sourceTree = "<group>"; };
+		A38432AA201C74C300C7BF03 /* ViewControllerEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEX.swift; sourceTree = "<group>"; };
+		A38432AC201C75F900C7BF03 /* SubcribeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcribeModel.swift; sourceTree = "<group>"; };
+		A38432B5201C7F1400C7BF03 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		A38432B9201CB8DC00C7BF03 /* MetaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaModel.swift; sourceTree = "<group>"; };
+		A38432BD201CCC3000C7BF03 /* ChatInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfoCell.swift; sourceTree = "<group>"; };
+		A38432BE201CCC3000C7BF03 /* ChatInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatInfoCell.xib; sourceTree = "<group>"; };
+		A38432C1201CD2FD00C7BF03 /* ViewEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEX.swift; sourceTree = "<group>"; };
+		A393473620123E630072D520 /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = "<group>"; };
+		A3934739201241BD0072D520 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
+		A393473C201243630072D520 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		A393473F201245820072D520 /* Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
+		A3934742201256660072D520 /* StringEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEX.swift; sourceTree = "<group>"; };
+		A3A36A9720132D4A00348F7B /* HiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiModel.swift; sourceTree = "<group>"; };
+		A3A36A9A2013326600348F7B /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		A3A3E1D1201D7AA40010EAA5 /* ColorEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEX.swift; sourceTree = "<group>"; };
+		A3A3E1D3201D7E9D0010EAA5 /* PresModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresModel.swift; sourceTree = "<group>"; };
+		A3DCCFA1201237D1002A6C5F /* G4HChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4HChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3DCCFA4201237D1002A6C5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A3DCCFA6201237D1002A6C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		A3DCCFA9201237D1002A6C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A3DCCFAB201237D1002A6C5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A3DCCFAE201237D1002A6C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A3DCCFB0201237D1002A6C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3DCCF9E201237D0002A6C5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A384329D201C2D6300C7BF03 /* RealmSwift.framework in Frameworks */,
+				A384329B201C2D4F00C7BF03 /* Starscream.framework in Frameworks */,
+				A31E95622013A2A0009A929C /* ToastSwiftFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A38432A3201C3BE100C7BF03 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				A38432A4201C3BF300C7BF03 /* UserModel.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		A38432B0201C7D5900C7BF03 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3DCCFA6201237D1002A6C5F /* LoginVC.swift */,
+				A38432B5201C7F1400C7BF03 /* HomeVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A38432B1201C7D6C00C7BF03 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				A3DCCFA8201237D1002A6C5F /* Main.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		A38432B2201C7D8000C7BF03 /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				A3DCCFAB201237D1002A6C5F /* Assets.xcassets */,
+				A3DCCFAD201237D1002A6C5F /* LaunchScreen.storyboard */,
+				A3DCCFB0201237D1002A6C5F /* Info.plist */,
+			);
+			path = "Support files";
+			sourceTree = "<group>";
+		};
+		A38432BB201CCC0200C7BF03 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A38432BC201CCC0D00C7BF03 /* ChatInfoCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A38432BC201CCC0D00C7BF03 /* ChatInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				A38432BD201CCC3000C7BF03 /* ChatInfoCell.swift */,
+				A38432BE201CCC3000C7BF03 /* ChatInfoCell.xib */,
+			);
+			path = ChatInfoCell;
+			sourceTree = "<group>";
+		};
+		A393473520123E620072D520 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A384329E201C2D7600C7BF03 /* Realm.framework */,
+				A384329C201C2D6300C7BF03 /* RealmSwift.framework */,
+				A384329A201C2D4F00C7BF03 /* Starscream.framework */,
+				A31E95612013A29F009A929C /* ToastSwiftFramework.framework */,
+				A3934739201241BD0072D520 /* IQKeyboardManagerSwift.framework */,
+				A393473620123E630072D520 /* SwiftWebSocket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3934738201241640072D520 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				A3934741201256540072D520 /* Extension */,
+				A393473E201245740072D520 /* Configure */,
+				A393473B2012434F0072D520 /* WebSocket */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		A393473B2012434F0072D520 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				A393473C201243630072D520 /* WebSocketManager.swift */,
+				A38432A8201C6D3200C7BF03 /* WebSocketProtocol.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		A393473E201245740072D520 /* Configure */ = {
+			isa = PBXGroup;
+			children = (
+				A393473F201245820072D520 /* Configure.swift */,
+			);
+			path = Configure;
+			sourceTree = "<group>";
+		};
+		A3934741201256540072D520 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A3934742201256660072D520 /* StringEX.swift */,
+				A38432AA201C74C300C7BF03 /* ViewControllerEX.swift */,
+				A38432C1201CD2FD00C7BF03 /* ViewEX.swift */,
+				A3A3E1D1201D7AA40010EAA5 /* ColorEX.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A3A36A9520132D2700348F7B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A38432A3201C3BE100C7BF03 /* DataModels */,
+				A3A36A992013323F00348F7B /* SocketModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A3A36A992013323F00348F7B /* SocketModels */ = {
+			isa = PBXGroup;
+			children = (
+				A3A36A9720132D4A00348F7B /* HiModel.swift */,
+				A3A36A9A2013326600348F7B /* LoginModel.swift */,
+				A31E955F20138985009A929C /* CtrlModel.swift */,
+				A38432AC201C75F900C7BF03 /* SubcribeModel.swift */,
+				A38432B9201CB8DC00C7BF03 /* MetaModel.swift */,
+				A3A3E1D3201D7E9D0010EAA5 /* PresModel.swift */,
+			);
+			path = SocketModels;
+			sourceTree = "<group>";
+		};
+		A3DCCF98201237D0002A6C5F = {
+			isa = PBXGroup;
+			children = (
+				A3DCCFA3201237D1002A6C5F /* G4HChat */,
+				A3DCCFA2201237D1002A6C5F /* Products */,
+				A393473520123E620072D520 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A3DCCFA2201237D1002A6C5F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3DCCFA1201237D1002A6C5F /* G4HChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3DCCFA3201237D1002A6C5F /* G4HChat */ = {
+			isa = PBXGroup;
+			children = (
+				A38432BB201CCC0200C7BF03 /* Cells */,
+				A3DCCFA4201237D1002A6C5F /* AppDelegate.swift */,
+				A3A36A9520132D2700348F7B /* Models */,
+				A38432B1201C7D6C00C7BF03 /* StoryBoards */,
+				A38432B2201C7D8000C7BF03 /* Support files */,
+				A3934738201241640072D520 /* Tools */,
+				A38432B0201C7D5900C7BF03 /* ViewControllers */,
+			);
+			path = G4HChat;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3DCCFA0201237D0002A6C5F /* G4HChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3DCCFB3201237D1002A6C5F /* Build configuration list for PBXNativeTarget "G4HChat" */;
+			buildPhases = (
+				A3DCCF9D201237D0002A6C5F /* Sources */,
+				A3DCCF9E201237D0002A6C5F /* Frameworks */,
+				A3DCCF9F201237D0002A6C5F /* Resources */,
+				A393473420123DDB0072D520 /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = G4HChat;
+			productName = G4HChat;
+			productReference = A3DCCFA1201237D1002A6C5F /* G4HChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3DCCF99201237D0002A6C5F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Codegreen;
+				TargetAttributes = {
+					A3DCCFA0201237D0002A6C5F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A3DCCF9C201237D0002A6C5F /* Build configuration list for PBXProject "G4HChat" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A3DCCF98201237D0002A6C5F;
+			productRefGroup = A3DCCFA2201237D1002A6C5F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3DCCFA0201237D0002A6C5F /* G4HChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A3DCCF9F201237D0002A6C5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3DCCFAF201237D1002A6C5F /* LaunchScreen.storyboard in Resources */,
+				A38432C0201CCC3000C7BF03 /* ChatInfoCell.xib in Resources */,
+				A3DCCFAC201237D1002A6C5F /* Assets.xcassets in Resources */,
+				A3DCCFAA201237D1002A6C5F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A393473420123DDB0072D520 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Starscream.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/IQKeyboardManagerSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3DCCF9D201237D0002A6C5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3A3E1D2201D7AA50010EAA5 /* ColorEX.swift in Sources */,
+				A38432BA201CB8DC00C7BF03 /* MetaModel.swift in Sources */,
+				A38432AB201C74C300C7BF03 /* ViewControllerEX.swift in Sources */,
+				A31E956020138985009A929C /* CtrlModel.swift in Sources */,
+				A3934740201245820072D520 /* Configure.swift in Sources */,
+				A3A36A9B2013326600348F7B /* LoginModel.swift in Sources */,
+				A38432B6201C7F1400C7BF03 /* HomeVC.swift in Sources */,
+				A3DCCFA7201237D1002A6C5F /* LoginVC.swift in Sources */,
+				A3A36A9820132D4A00348F7B /* HiModel.swift in Sources */,
+				A3A3E1D4201D7E9D0010EAA5 /* PresModel.swift in Sources */,
+				A38432BF201CCC3000C7BF03 /* ChatInfoCell.swift in Sources */,
+				A38432AD201C75F900C7BF03 /* SubcribeModel.swift in Sources */,
+				A3DCCFA5201237D1002A6C5F /* AppDelegate.swift in Sources */,
+				A3934743201256660072D520 /* StringEX.swift in Sources */,
+				A38432A9201C6D3200C7BF03 /* WebSocketProtocol.swift in Sources */,
+				A38432A5201C3BF300C7BF03 /* UserModel.swift in Sources */,
+				A393473D201243630072D520 /* WebSocketManager.swift in Sources */,
+				A38432C2201CD2FD00C7BF03 /* ViewEX.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A3DCCFA8201237D1002A6C5F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3DCCFA9201237D1002A6C5F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A3DCCFAD201237D1002A6C5F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3DCCFAE201237D1002A6C5F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A3DCCFB1201237D1002A6C5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A3DCCFB2201237D1002A6C5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A3DCCFB4201237D1002A6C5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/G4HChat/Support files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.apple.G4HChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A3DCCFB5201237D1002A6C5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/G4HChat/Support files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.apple.G4HChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3DCCF9C201237D0002A6C5F /* Build configuration list for PBXProject "G4HChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3DCCFB1201237D1002A6C5F /* Debug */,
+				A3DCCFB2201237D1002A6C5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3DCCFB3201237D1002A6C5F /* Build configuration list for PBXNativeTarget "G4HChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3DCCFB4201237D1002A6C5F /* Debug */,
+				A3DCCFB5201237D1002A6C5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A3DCCF99201237D0002A6C5F /* Project object */;
+}
