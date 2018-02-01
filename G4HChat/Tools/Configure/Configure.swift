@@ -19,4 +19,6 @@ class Configure {
 extension Configure {
     static let offlineGray = "c0c0c0"
     static let onlineGreen = "00b852"
+    static let incomingColor = "4279ff"
+    static let outgoingColor = "f1f0f0"
 }

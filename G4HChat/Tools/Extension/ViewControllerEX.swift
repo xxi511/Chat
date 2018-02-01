@@ -11,7 +11,10 @@ import UIKit
 extension UIViewController {
     func noticeAlert(title: String?, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let ok = UIAlertAction(title: "OK", style: .default) { _ in
+            guard self.navigationController != nil else {return}
+            self.navigationController?.popViewController(animated: true)
+        }
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
     }

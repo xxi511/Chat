@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1501B631202352A000872B8E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1501B630202352A000872B8E /* DataModel.swift */; };
+		1501B6332023544100872B8E /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1501B6322023544100872B8E /* ChatVC.swift */; };
+		1501B6352023545500872B8E /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1501B6342023545500872B8E /* Chat.storyboard */; };
+		150C4F9B201E216E00244664 /* TextMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C4F99201E216E00244664 /* TextMsgCell.swift */; };
+		150C4F9C201E216E00244664 /* TextMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150C4F9A201E216E00244664 /* TextMsgCell.xib */; };
 		A31E956020138985009A929C /* CtrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31E955F20138985009A929C /* CtrlModel.swift */; };
 		A31E95622013A2A0009A929C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31E95612013A29F009A929C /* ToastSwiftFramework.framework */; };
 		A384329B201C2D4F00C7BF03 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A384329A201C2D4F00C7BF03 /* Starscream.framework */; };
@@ -35,6 +40,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1501B630202352A000872B8E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		1501B6322023544100872B8E /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		1501B6342023545500872B8E /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		150C4F99201E216E00244664 /* TextMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMsgCell.swift; sourceTree = "<group>"; };
+		150C4F9A201E216E00244664 /* TextMsgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextMsgCell.xib; sourceTree = "<group>"; };
 		A31E955F20138985009A929C /* CtrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CtrlModel.swift; sourceTree = "<group>"; };
 		A31E95612013A29F009A929C /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		A384329A201C2D4F00C7BF03 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
@@ -81,6 +91,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		150C4F97201E1F2600244664 /* MessageCells */ = {
+			isa = PBXGroup;
+			children = (
+				150C4F98201E214900244664 /* TextMsgCell */,
+			);
+			path = MessageCells;
+			sourceTree = "<group>";
+		};
+		150C4F98201E214900244664 /* TextMsgCell */ = {
+			isa = PBXGroup;
+			children = (
+				150C4F99201E216E00244664 /* TextMsgCell.swift */,
+				150C4F9A201E216E00244664 /* TextMsgCell.xib */,
+			);
+			path = TextMsgCell;
+			sourceTree = "<group>";
+		};
 		A38432A3201C3BE100C7BF03 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +121,7 @@
 			children = (
 				A3DCCFA6201237D1002A6C5F /* LoginVC.swift */,
 				A38432B5201C7F1400C7BF03 /* HomeVC.swift */,
+				1501B6322023544100872B8E /* ChatVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -102,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A3DCCFA8201237D1002A6C5F /* Main.storyboard */,
+				1501B6342023545500872B8E /* Chat.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -119,6 +148,7 @@
 		A38432BB201CCC0200C7BF03 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				150C4F97201E1F2600244664 /* MessageCells */,
 				A38432BC201CCC0D00C7BF03 /* ChatInfoCell */,
 			);
 			path = Cells;
@@ -202,6 +232,7 @@
 				A38432AC201C75F900C7BF03 /* SubcribeModel.swift */,
 				A38432B9201CB8DC00C7BF03 /* MetaModel.swift */,
 				A3A3E1D3201D7E9D0010EAA5 /* PresModel.swift */,
+				1501B630202352A000872B8E /* DataModel.swift */,
 			);
 			path = SocketModels;
 			sourceTree = "<group>";
@@ -297,7 +328,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1501B6352023545500872B8E /* Chat.storyboard in Resources */,
 				A3DCCFAF201237D1002A6C5F /* LaunchScreen.storyboard in Resources */,
+				150C4F9C201E216E00244664 /* TextMsgCell.xib in Resources */,
 				A38432C0201CCC3000C7BF03 /* ChatInfoCell.xib in Resources */,
 				A3DCCFAC201237D1002A6C5F /* Assets.xcassets in Resources */,
 				A3DCCFAA201237D1002A6C5F /* Main.storyboard in Resources */,
@@ -343,7 +376,9 @@
 				A38432AB201C74C300C7BF03 /* ViewControllerEX.swift in Sources */,
 				A31E956020138985009A929C /* CtrlModel.swift in Sources */,
 				A3934740201245820072D520 /* Configure.swift in Sources */,
+				1501B631202352A000872B8E /* DataModel.swift in Sources */,
 				A3A36A9B2013326600348F7B /* LoginModel.swift in Sources */,
+				150C4F9B201E216E00244664 /* TextMsgCell.swift in Sources */,
 				A38432B6201C7F1400C7BF03 /* HomeVC.swift in Sources */,
 				A3DCCFA7201237D1002A6C5F /* LoginVC.swift in Sources */,
 				A3A36A9820132D4A00348F7B /* HiModel.swift in Sources */,
@@ -351,6 +386,7 @@
 				A38432BF201CCC3000C7BF03 /* ChatInfoCell.swift in Sources */,
 				A38432AD201C75F900C7BF03 /* SubcribeModel.swift in Sources */,
 				A3DCCFA5201237D1002A6C5F /* AppDelegate.swift in Sources */,
+				1501B6332023544100872B8E /* ChatVC.swift in Sources */,
 				A3934743201256660072D520 /* StringEX.swift in Sources */,
 				A38432A9201C6D3200C7BF03 /* WebSocketProtocol.swift in Sources */,
 				A38432A5201C3BF300C7BF03 /* UserModel.swift in Sources */,
@@ -493,6 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4C2GNT69CH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -513,6 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4C2GNT69CH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

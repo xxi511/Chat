@@ -21,10 +21,6 @@ class LoginVC: UIViewController {
         self.socket.delegate = self
         self.socket.open()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,6 +40,7 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func editingChange(_ sender: Any) {
+        // TODO login button disable at initialize
         let account = self.accountTextField.text!
         let password = self.passwordTextField.text!
         if account.count > 0 && password.count > 0 {

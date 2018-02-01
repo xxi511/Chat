@@ -12,7 +12,8 @@ class HomeVC: UIViewController {
     @IBOutlet var tableView: UITableView!
 
     private let socket = WebSocketManager.shard
-    private var roomList = [ChatInfo]()
+    private var roomList = [MetaInfo]()
+    private var isFirst = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,24 +24,28 @@ class HomeVC: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.topItem?.title = "CHAT"
         self.socket.delegate = self
-        self.socket.subcribeMe()
+        if self.isFirst {
+            self.socket.subcribeMe()
+            self.isFirst = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 }
 
 extension HomeVC: WebSocketProtocol {
-    func subcribeMeResult(chatList: [ChatInfo]?, error: String?) {
+    func subcribeTopic(_ topic: String, error: String) {
+        guard topic == "me" else {return}
         self.view.hideToastActivity()
-        guard error == nil else {
-            self.noticeAlert(title: "Error", message: error)
-            return
-        }
+        self.noticeAlert(title: "Error", message: error)
+    }
 
-        self.roomList = chatList!
+    func subcribeTopic(_ topic: String, metaInfo: [MetaInfo]) {
+        guard topic == "me" else {return}
+        self.view.hideToastActivity()
+        self.roomList = metaInfo
         self.tableView.reloadData()
     }
 }
@@ -67,6 +72,13 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         cell.isOnline = data.online ?? false
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let data = self.roomList[indexPath.row]
+        let vc = ChatVC.instance(data.topic!)
+        self.navigationController?.show(vc, sender: self)
     }
 }
 

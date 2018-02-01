@@ -15,7 +15,7 @@ class WebSocketManager {
     enum MessageType {
         case Hi
         case Login
-        case SubMe
+        case SubTopic
     }
 
     static let shard = WebSocketManager()
@@ -50,8 +50,16 @@ class WebSocketManager {
     func subcribeMe() {
         let subModel = SubcribeModel(topic: "me", what: "sub desc")
         let data = try! JSONEncoder().encode(subModel)
-        self.msgRecord[subModel.sub.id] = .SubMe
+        self.msgRecord[subModel.sub.id] = .SubTopic
         self.ws.write(data: data)
+    }
+
+    func subcribeRoom(topic: String, limit: Int=24) {
+        let data = SubDataModel(limit: limit)
+        let sub = SubcribeModel(topic: topic, what: "data sub desc", data: data)
+        let jsonData = try! JSONEncoder().encode(sub)
+        self.msgRecord[sub.sub.id] = .SubTopic
+        self.ws.write(data: jsonData)
     }
 }
 
@@ -69,17 +77,21 @@ extension WebSocketManager: WebSocketAdvancedDelegate {
     func websocketDidReceiveMessage(socket: WebSocket, text: String, response: WebSocket.WSResponse) {
 
         let data = text.data(using: .utf8)!
-        if text.contains("ctrl") {
+        if text.hasPrefix("{\"ctrl\"") {
             let ctrlModel = try! JSONDecoder().decode(CtrlModel.self, from: data)
             self.handleCtrl(res: ctrlModel)
-        } else if text.contains("meta") {
+        } else if text.hasPrefix("{\"meta\"") {
             let metaModel = try! JSONDecoder().decode(MetaModel.self, from: data)
             self.handleMeta(meta: metaModel)
-        } else if text.contains("pres") {
+        } else if text.hasPrefix("{\"pres\"") {
             let presModel = try! JSONDecoder().decode(PresModel.self, from: data)
             self.handlePres(res: presModel)
+        } else if text.hasPrefix("{\"data\"") {
+            let dataModel = try! JSONDecoder().decode(DataModel.self, from: data)
+            self.delegate?.subcribeData(dataModel.data)
         }
     }
+
 
     func websocketDidReceiveData(socket: WebSocket, data: Data, response: WebSocket.WSResponse) {
         print("Websocket receive data")
@@ -98,8 +110,7 @@ extension WebSocketManager: WebSocketAdvancedDelegate {
 extension WebSocketManager {
 
     private func handleCtrl(res: CtrlModel) {
-        guard let type = self.msgRecord[res.ctrl.id]
-            else {
+        guard let type = self.msgRecord[res.ctrl.id] else {
             return
         }
 
@@ -112,9 +123,9 @@ extension WebSocketManager {
             print("Get Login Response")
             self.msgRecord.removeValue(forKey: res.ctrl.id)
             self.handleLogin(res: res)
-        case .SubMe:
-            print("Get Subcribe Me Ctrl")
-            self.handleSubcribeMe(res: res, meta: nil)
+        case .SubTopic:
+            print("Get Subcribe Room Ctrl")
+            self.handleSubcribeTopic(res: res, meta: nil)
         }
     }
 
@@ -123,11 +134,10 @@ extension WebSocketManager {
             return
         }
         switch type {
-        case .SubMe:
-            print("Get Subcribe Me Meta")
-            self.handleSubcribeMe(res: nil, meta: meta)
-        default:
-            return
+        case .SubTopic:
+            print("Get Subcribe Topic")
+            self.handleSubcribeTopic(res: nil, meta: meta)
+        default: return
         }
     }
 
@@ -152,22 +162,35 @@ extension WebSocketManager {
                                    error: nil)
     }
 
-    private func handleSubcribeMe(res: CtrlModel?, meta: MetaModel?) {
+    private func handleSubcribeTopic(res: CtrlModel?, meta: MetaModel?) {
         
         if let res = res {
+            let topic = res.ctrl.topic!
             guard res.ctrl.code == 200 else {
-                self.delegate?.subcribeMeResult(chatList: nil,
-                                                error: res.ctrl.text)
+                let err = res.ctrl.text
+                self.delegate?.subcribeTopic(topic, error: err)
                 return
             }
+            self.delegate?.subcribeTopic(topic, ctrl: res.ctrl)
         } else if let meta = meta {
+            let topic = meta.meta.topic
             if meta.meta.desc != nil {
-                self.setUserInfo(desc: meta.meta.desc!)
+                self.handleMetaDesc(topic, desc: meta.meta.desc!)
             } else if meta.meta.sub != nil {
-                self.delegate?.subcribeMeResult(chatList: meta.meta.sub, error: nil)
-                self.msgRecord.removeValue(forKey: meta.meta.id)
-                // Does subcribe "me" only 3 frame
+                self.delegate?.subcribeTopic(topic, metaInfo: meta.meta.sub!)
+                if meta.meta.topic == "me" {
+                    self.msgRecord.removeValue(forKey: meta.meta.id)
+                }
+                // Does subcribe Topic only 3 frame
             }
+        }
+    }
+
+    private func handleMetaDesc(_ topic: String, desc: DescModel) {
+        if topic == "me" {
+            self.setUserInfo(desc: desc)
+        } else {
+            self.delegate?.subcribeTopic(topic, desc: desc)
         }
     }
 }
