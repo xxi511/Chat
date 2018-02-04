@@ -24,7 +24,11 @@ struct DataVarModel: Codable {
 
     public init(from decoder: Decoder) throws {
         let json = try decoder.container(keyedBy: CodingKeys.self)
-        self.content = try! json.decode(DataContentModel.self, forKey: .content)
+        if let contentStr = try? json.decode(String.self, forKey: .content) {
+            self.content = DataContentModel(txt: contentStr)
+        } else {
+            self.content = try! json.decode(DataContentModel.self, forKey: .content)
+        }
         self.from = try! json.decode(String.self, forKey: .from)
         self.seq = try! json.decode(Int.self, forKey: .seq)
         self.topic = try! json.decode(String.self, forKey: .topic)
@@ -36,6 +40,11 @@ struct DataVarModel: Codable {
 struct DataContentModel: Codable {
     var ent: [DataEntModel]?
     var fmt: [DataFmtModel]?
+    var txt: String?
+
+    public init(txt: String) {
+        self.txt = txt
+    }
 }
 
 struct DataEntModel: Codable {

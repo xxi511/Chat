@@ -56,7 +56,7 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
     }
     
     @IBAction func sendAction(_ sender : UIButton) {
-        if inputTextField.text?.isEmpty == false {
+        if inputTextField.text?.characters.count != 0 {
 
             let indexPath = IndexPath(row: tableView.numberOfRows(inSection: 0), section: 0)
             
@@ -71,7 +71,7 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
     }
     
     @objc func textFieldDidChange(_ notification: Notification) {
-        buttonSend.isEnabled = inputTextField.text?.isEmpty == false
+        buttonSend.isEnabled = inputTextField.text?.characters.count != 0
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

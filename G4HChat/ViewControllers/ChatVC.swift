@@ -37,6 +37,13 @@ class ChatVC: UIViewController {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParentViewController {
+            self.socket.leaveTopic(self.topic)
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,7 +60,10 @@ extension ChatVC: WebSocketProtocol {
         guard topic == self.topic else {return}
         guard let what = ctrl.params?.what else {return}
         if what == "data" {
+            self.socket.removeRecord(key: ctrl.id)
             // update view
+            let k = self.messages
+            print("data done")
         }
     }
 

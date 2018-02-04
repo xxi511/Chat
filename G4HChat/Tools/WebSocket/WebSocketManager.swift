@@ -16,6 +16,8 @@ class WebSocketManager {
         case Hi
         case Login
         case SubTopic
+        case Leave
+        case Get
     }
 
     static let shard = WebSocketManager()
@@ -31,35 +33,50 @@ class WebSocketManager {
         self.ws.advancedDelegate = self
     }
 
+    func removeRecord(key: String) {
+        self.msgRecord.removeValue(forKey: key)
+    }
+
     func open() {
         self.ws.connect()
     }
 
-    func send(message: Data) {
-        self.ws.write(data: message)
+    func send<T: Encodable>(model: T, type: MessageType,
+                             id: String) {
+        let data = try! JSONEncoder().encode(model)
+        self.msgRecord[id] = type
+        self.ws.write(data: data)
     }
 
     func login(account: String, password: String) {
         let secret = "\(account):\(password)"
         let login = LoginModel(secret: secret.base64()!)
-        let data = try! JSONEncoder().encode(login)
-        self.msgRecord[login.login.id] = .Login
-        self.ws.write(data: data)
+        self.send(model: login, type: .Login, id: login.login.id)
     }
 
     func subcribeMe() {
-        let subModel = SubcribeModel(topic: "me", what: "sub desc")
-        let data = try! JSONEncoder().encode(subModel)
-        self.msgRecord[subModel.sub.id] = .SubTopic
-        self.ws.write(data: data)
+        let subModel = SubcribeModel(topic: "me", what: [.sub, .desc])
+        self.send(model: subModel, type: .SubTopic,
+                  id: subModel.sub.id)
     }
 
     func subcribeRoom(topic: String, limit: Int=24) {
         let data = SubDataModel(limit: limit)
-        let sub = SubcribeModel(topic: topic, what: "data sub desc", data: data)
-        let jsonData = try! JSONEncoder().encode(sub)
-        self.msgRecord[sub.sub.id] = .SubTopic
-        self.ws.write(data: jsonData)
+        let sub = SubcribeModel(topic: topic, what: [.data, .sub, .desc], data: data)
+        self.send(model: sub, type: .SubTopic, id: sub.sub.id)
+    }
+
+    func leaveTopic(_ topic: String) {
+        let leaveModel = LeaveModel(topic: topic)
+        self.send(model: leaveModel, type: .Leave,
+                  id: leaveModel.leave.id)
+    }
+
+    func GetData(topic: String, what: [WhatEnum],
+                 before: Int, limit: Int=24) {
+        let getModel = GetModel(topic: topic, what: what,
+                                before: before, limit: limit)
+        self.send(model: getModel, type: .Get, id: getModel.data.id)
     }
 }
 
@@ -72,6 +89,7 @@ extension WebSocketManager: WebSocketAdvancedDelegate {
 
     func websocketDidDisconnect(socket: WebSocket, error: Error?) {
         print("WebSocket disconnect")
+        self.ws.connect()
     }
 
     func websocketDidReceiveMessage(socket: WebSocket, text: String, response: WebSocket.WSResponse) {
@@ -87,6 +105,7 @@ extension WebSocketManager: WebSocketAdvancedDelegate {
             let presModel = try! JSONDecoder().decode(PresModel.self, from: data)
             self.handlePres(res: presModel)
         } else if text.hasPrefix("{\"data\"") {
+            print("Get Subcribe Data")
             let dataModel = try! JSONDecoder().decode(DataModel.self, from: data)
             self.delegate?.subcribeData(dataModel.data)
         }
@@ -123,9 +142,12 @@ extension WebSocketManager {
             print("Get Login Response")
             self.msgRecord.removeValue(forKey: res.ctrl.id)
             self.handleLogin(res: res)
-        case .SubTopic:
+        case .SubTopic, .Get:
             print("Get Subcribe Room Ctrl")
             self.handleSubcribeTopic(res: res, meta: nil)
+        case .Leave:
+            print("Get Leave Response")
+            self.handleLeave(res: res.ctrl)
         }
     }
 
@@ -186,6 +208,15 @@ extension WebSocketManager {
         }
     }
 
+
+    private func handleLeave(res: CtrlContent) {
+        guard res.code == 200 else {
+            self.leaveTopic(res.topic!)
+            return
+        }
+        self.msgRecord.removeValue(forKey: res.id)
+    }
+
     private func handleMetaDesc(_ topic: String, desc: DescModel) {
         if topic == "me" {
             self.setUserInfo(desc: desc)
@@ -201,8 +232,7 @@ extension WebSocketManager {
     private func sayHi() {
         let hiModel = HiModel()
         self.msgRecord[hiModel.hi.id] = .Hi
-        let hiData = try! JSONEncoder().encode(hiModel)
-        self.send(message: hiData)
+        self.send(model: hiModel, type: .Hi, id: hiModel.hi.id)
     }
 
     private func setUserInfo(desc: DescModel) {

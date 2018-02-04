@@ -1,4 +1,4 @@
-github "daltoniam/Starscream" >= 3.0.2
-github "hackiftekhar/IQKeyboardManager"
+github "daltoniam/Starscream" ~> 3.0.4
+github "hackiftekhar/IQKeyboardManager" "v5.0.6"
 github "scalessec/Toast-Swift" ~> 3.0.1
 github "realm/realm-cocoa"

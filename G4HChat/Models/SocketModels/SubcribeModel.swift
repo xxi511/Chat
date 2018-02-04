@@ -10,7 +10,7 @@ import Foundation
 struct SubcribeModel: Codable {
     var sub: SubcribeContent
 
-    init(topic: String, what: String, data: SubDataModel?=nil) {
+    init(topic: String, what: [WhatEnum], data: SubDataModel?=nil) {
         self.sub = SubcribeContent(topic: topic, what: what)
     }
 }
@@ -20,7 +20,7 @@ struct SubcribeContent: Codable {
     var topic: String
     var get: SubGetModel
 
-    init(topic: String, what: String, data: SubDataModel?=nil) {
+    init(topic: String, what: [WhatEnum], data: SubDataModel?=nil) {
         self.id = UUID().uuidString
         self.topic = topic
         self.get = SubGetModel(what: what, data: data)
@@ -30,6 +30,13 @@ struct SubcribeContent: Codable {
 struct SubGetModel: Codable {
     var what: String
     var data: SubDataModel?
+    public init(what: [WhatEnum], data: SubDataModel?) {
+        let whatRaw = what.flatMap { (what) -> String? in
+            return what.rawValue
+        }
+        self.what = whatRaw.joined(separator: " ")
+        self.data = data
+    }
 }
 
 struct SubDataModel: Codable {

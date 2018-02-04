@@ -22,18 +22,6 @@
 // THE SOFTWARE.
 
 #import "IQKeyboardManagerConstants.h"
-#import "IQUIView+IQKeyboardToolbar.h"
-#import "IQPreviousNextView.h"
-#import "IQUIViewController+Additions.h"
-#import "IQKeyboardReturnKeyHandler.h"
-#import "IQUIWindow+Hierarchy.h"
-#import "IQTextView.h"
-#import "IQToolbar.h"
-#import "IQUIScrollView+Additions.h"
-#import "IQUITextFieldView+Additions.h"
-#import "IQBarButtonItem.h"
-#import "IQTitleBarButtonItem.h"
-#import "IQUIView+Hierarchy.h"
 
 #import <CoreGraphics/CGBase.h>
 
@@ -73,7 +61,7 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 ///--------------------------
 
 /**
- Returns the default singleton instance. You are not allowed to create your own instances of this class.
+ Returns the default singleton instance.
  */
 + (nonnull instancetype)sharedManager;
 
@@ -331,7 +319,7 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 @property(nonatomic, assign) BOOL enableDebugging;
 
 /**
- @warning Use these methods to completely enable/disable notifications registered by library internally. Please keep in mind that library is totally dependent on NSNotification of UITextField, UITextField, Keyboard etc. If you do unregisterAllNotifications then library will not work at all. You should only use below methods if you want to completedly disable all library functions. You should use below methods at your own risk.
+ @warning Use below methods to completely enable/disable notifications registered by library internally. Please keep in mind that library is totally dependent on NSNotification of UITextField, UITextField, Keyboard etc. If you do unregisterAllNotifications then library will not work at all. You should only use below methods if you want to completedly disable all library functions. You should use below methods at your own risk.
  */
 -(void)registerAllNotifications;
 -(void)unregisterAllNotifications;

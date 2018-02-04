@@ -45,7 +45,7 @@ class SearchViewController: UITableViewController, UISearchResultsUpdating, UISe
         
         if let text = searchText {
             
-            if (text.isEmpty == false)
+            if (text.characters.count != 0)
             {
                 if (scope == 0)
                 {
