@@ -1,9 +1,0 @@
-{
-  "commitish" : "3.0.1",
-  "iOS" : [
-    {
-      "name" : "ToastSwiftFramework",
-      "hash" : "716a02dd03f7574d7ee6c62cf72145352aa8f2c23d2b75d1233205718053cd93"
-    }
-  ]
-}

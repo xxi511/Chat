@@ -1,9 +1,0 @@
-{
-  "commitish" : "2.6.5",
-  "iOS" : [
-    {
-      "name" : "SwiftWebSocket",
-      "hash" : "90e6015608242810556f2258ceaf0fef3a6231ba1a2208d5d4cff421700913b5"
-    }
-  ]
-}
