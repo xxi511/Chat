@@ -12,6 +12,11 @@
 		1501B6352023545500872B8E /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1501B6342023545500872B8E /* Chat.storyboard */; };
 		150C4F9B201E216E00244664 /* TextMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C4F99201E216E00244664 /* TextMsgCell.swift */; };
 		150C4F9C201E216E00244664 /* TextMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150C4F9A201E216E00244664 /* TextMsgCell.xib */; };
+		1542072F2029F47B008C26B1 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A393473620123E630072D520 /* SwiftWebSocket.framework */; };
+		1556C4302028B54800431A90 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1556C42F2028B54800431A90 /* MobileCoreServices.framework */; };
+		15C310E620289A1E00B33978 /* DateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C310E520289A1E00B33978 /* DateEx.swift */; };
+		15C310EA2028AE6300B33978 /* ImageMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C310E82028AE6300B33978 /* ImageMsgCell.swift */; };
+		15C310EB2028AE6300B33978 /* ImageMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C310E92028AE6300B33978 /* ImageMsgCell.xib */; };
 		A31E956020138985009A929C /* CtrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31E955F20138985009A929C /* CtrlModel.swift */; };
 		A31E95622013A2A0009A929C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31E95612013A29F009A929C /* ToastSwiftFramework.framework */; };
 		A384329B201C2D4F00C7BF03 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A384329A201C2D4F00C7BF03 /* Starscream.framework */; };
@@ -47,6 +52,10 @@
 		1501B6342023545500872B8E /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		150C4F99201E216E00244664 /* TextMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMsgCell.swift; sourceTree = "<group>"; };
 		150C4F9A201E216E00244664 /* TextMsgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextMsgCell.xib; sourceTree = "<group>"; };
+		1556C42F2028B54800431A90 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		15C310E520289A1E00B33978 /* DateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEx.swift; sourceTree = "<group>"; };
+		15C310E82028AE6300B33978 /* ImageMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMsgCell.swift; sourceTree = "<group>"; };
+		15C310E92028AE6300B33978 /* ImageMsgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMsgCell.xib; sourceTree = "<group>"; };
 		A31E955F20138985009A929C /* CtrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CtrlModel.swift; sourceTree = "<group>"; };
 		A31E95612013A29F009A929C /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		A384329A201C2D4F00C7BF03 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
@@ -86,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1542072F2029F47B008C26B1 /* SwiftWebSocket.framework in Frameworks */,
+				1556C4302028B54800431A90 /* MobileCoreServices.framework in Frameworks */,
 				A384329D201C2D6300C7BF03 /* RealmSwift.framework in Frameworks */,
 				A384329B201C2D4F00C7BF03 /* Starscream.framework in Frameworks */,
 				A31E95622013A2A0009A929C /* ToastSwiftFramework.framework in Frameworks */,
@@ -98,6 +109,7 @@
 		150C4F97201E1F2600244664 /* MessageCells */ = {
 			isa = PBXGroup;
 			children = (
+				15C310E72028AE2A00B33978 /* ImageMsgCell */,
 				150C4F98201E214900244664 /* TextMsgCell */,
 			);
 			path = MessageCells;
@@ -110,6 +122,15 @@
 				150C4F9A201E216E00244664 /* TextMsgCell.xib */,
 			);
 			path = TextMsgCell;
+			sourceTree = "<group>";
+		};
+		15C310E72028AE2A00B33978 /* ImageMsgCell */ = {
+			isa = PBXGroup;
+			children = (
+				15C310E82028AE6300B33978 /* ImageMsgCell.swift */,
+				15C310E92028AE6300B33978 /* ImageMsgCell.xib */,
+			);
+			path = ImageMsgCell;
 			sourceTree = "<group>";
 		};
 		A38432A3201C3BE100C7BF03 /* DataModels */ = {
@@ -170,6 +191,7 @@
 		A393473520123E620072D520 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1556C42F2028B54800431A90 /* MobileCoreServices.framework */,
 				A384329E201C2D7600C7BF03 /* Realm.framework */,
 				A384329C201C2D6300C7BF03 /* RealmSwift.framework */,
 				A384329A201C2D4F00C7BF03 /* Starscream.framework */,
@@ -214,6 +236,7 @@
 				A38432AA201C74C300C7BF03 /* ViewControllerEX.swift */,
 				A38432C1201CD2FD00C7BF03 /* ViewEX.swift */,
 				A3A3E1D1201D7AA40010EAA5 /* ColorEX.swift */,
+				15C310E520289A1E00B33978 /* DateEx.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -334,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C310EB2028AE6300B33978 /* ImageMsgCell.xib in Resources */,
 				1501B6352023545500872B8E /* Chat.storyboard in Resources */,
 				A3DCCFAF201237D1002A6C5F /* LaunchScreen.storyboard in Resources */,
 				150C4F9C201E216E00244664 /* TextMsgCell.xib in Resources */,
@@ -357,6 +381,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftWebSocket.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -365,6 +390,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftWebSocket.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -387,6 +413,8 @@
 				150C4F9B201E216E00244664 /* TextMsgCell.swift in Sources */,
 				A38432B6201C7F1400C7BF03 /* HomeVC.swift in Sources */,
 				A390ED38202613D4007E34EA /* LeaveModel.swift in Sources */,
+				15C310E620289A1E00B33978 /* DateEx.swift in Sources */,
+				15C310EA2028AE6300B33978 /* ImageMsgCell.swift in Sources */,
 				A3DCCFA7201237D1002A6C5F /* LoginVC.swift in Sources */,
 				A3A36A9820132D4A00348F7B /* HiModel.swift in Sources */,
 				A3A3E1D4201D7E9D0010EAA5 /* PresModel.swift in Sources */,

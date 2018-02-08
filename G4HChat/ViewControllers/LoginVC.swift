@@ -8,6 +8,7 @@
 
 import UIKit
 import ToastSwiftFramework
+//import SwiftWebSocket
 
 class LoginVC: UIViewController {
 
@@ -18,6 +19,17 @@ class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let ws = WebSocket("ws://10.144.39.75:6060/v0/channels?apikey=AQEAAAABAAD_rAp4DJh05a1HAwFT3A6K")
+//        ws.event.open = {
+//            print("open")
+//        }
+//        ws.event.close = { code, reason, clean in
+//            print("close")
+//        }
+//        ws.event.error = { error in
+//            print("error \(error)")
+//        }
+
         self.socket.delegate = self
         self.socket.open()
     }
@@ -59,7 +71,10 @@ extension LoginVC: WebSocketProtocol {
             self.noticeAlert(title: "Error", message: error)
             return
         }
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "mainNavigation")
-        self.present(vc!, animated: true, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "mainNavigation") as! UINavigationController
+        if let tab = vc.viewControllers.first as? UITabBarController {
+            tab.automaticallyAdjustsScrollViewInsets = false
+        }
+        self.present(vc, animated: true, completion: nil)
     }
 }

@@ -24,7 +24,16 @@ extension String {
     func iSODate()-> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        var format = "yyyy-MM-dd'T'HH:mm:ss"
+        let end = max(self.count - 21, 0)
+        for i in 0..<end {
+            if i == 0 {
+                format.append(".")
+            }
+            format.append("S")
+        }
+        format.append("'Z'")
+        dateFormatter.dateFormat = format
         return dateFormatter.date(from:self)!
     }
 

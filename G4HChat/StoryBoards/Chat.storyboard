@@ -18,24 +18,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rock and roll" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcz-0f-0tA">
-                                <rect key="frame" x="140.5" y="323" width="94.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l06-ez-pvz">
+                                <rect key="frame" x="0.0" y="633" width="375" height="34"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eSF-Lq-hdg">
+                                        <rect key="frame" x="5" y="2" width="325" height="30"/>
+                                        <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="KPy-58-ZfR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DS-sl-PCw">
+                                        <rect key="frame" x="335" y="2" width="30" height="30"/>
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="send"/>
+                                        <connections>
+                                            <action selector="clickSendMsgBtn:" destination="HW7-xs-S3j" eventType="touchUpInside" id="bqx-Lu-4ch"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5DS-sl-PCw" secondAttribute="bottom" constant="2" id="0PK-6K-t8z"/>
+                                    <constraint firstItem="5DS-sl-PCw" firstAttribute="leading" secondItem="eSF-Lq-hdg" secondAttribute="trailing" constant="5" id="Aep-07-4ad"/>
+                                    <constraint firstAttribute="trailing" secondItem="5DS-sl-PCw" secondAttribute="trailing" constant="10" id="Ddg-Ha-7mh"/>
+                                    <constraint firstAttribute="bottom" secondItem="eSF-Lq-hdg" secondAttribute="bottom" constant="2" id="F4g-ZV-qaq"/>
+                                    <constraint firstItem="eSF-Lq-hdg" firstAttribute="leading" secondItem="l06-ez-pvz" secondAttribute="leading" constant="5" id="abZ-A0-tuq"/>
+                                    <constraint firstItem="5DS-sl-PCw" firstAttribute="top" secondItem="l06-ez-pvz" secondAttribute="top" constant="2" id="pva-YX-5tN"/>
+                                    <constraint firstItem="eSF-Lq-hdg" firstAttribute="top" secondItem="l06-ez-pvz" secondAttribute="top" constant="2" id="pyZ-M1-lCM"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SR7-EE-DF1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="613"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HW7-xs-S3j" id="42y-jl-U7y"/>
+                                    <outlet property="delegate" destination="HW7-xs-S3j" id="biY-To-eDi"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xcz-0f-0tA" firstAttribute="centerX" secondItem="zIZ-xl-ZZ0" secondAttribute="centerX" id="DgV-A9-7Ix"/>
-                            <constraint firstItem="Xcz-0f-0tA" firstAttribute="centerY" secondItem="zIZ-xl-ZZ0" secondAttribute="centerY" id="mJL-oo-eEY"/>
+                            <constraint firstItem="l06-ez-pvz" firstAttribute="leading" secondItem="zIZ-xl-ZZ0" secondAttribute="leading" id="170-iC-dEx"/>
+                            <constraint firstItem="SR7-EE-DF1" firstAttribute="leading" secondItem="gTG-MZ-0oy" secondAttribute="leading" id="3GU-1K-zM5"/>
+                            <constraint firstAttribute="bottom" secondItem="l06-ez-pvz" secondAttribute="bottom" id="iUi-ab-IL6"/>
+                            <constraint firstItem="l06-ez-pvz" firstAttribute="top" secondItem="SR7-EE-DF1" secondAttribute="bottom" id="slt-I9-k0k"/>
+                            <constraint firstItem="SR7-EE-DF1" firstAttribute="top" secondItem="gTG-MZ-0oy" secondAttribute="top" id="uV8-Zb-JgJ"/>
+                            <constraint firstItem="gTG-MZ-0oy" firstAttribute="trailing" secondItem="SR7-EE-DF1" secondAttribute="trailing" id="y2S-pr-55q"/>
+                            <constraint firstAttribute="trailing" secondItem="l06-ez-pvz" secondAttribute="trailing" id="z3y-NJ-J9a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gTG-MZ-0oy"/>
                     </view>
+                    <connections>
+                        <outlet property="chatTable" destination="SR7-EE-DF1" id="0AW-g0-mHe"/>
+                        <outlet property="messageTextView" destination="eSF-Lq-hdg" id="5vM-FE-mME"/>
+                        <outlet property="messageView" destination="l06-ez-pvz" id="cye-uw-ax7"/>
+                        <outlet property="messageViewBottom" destination="iUi-ab-IL6" id="c5u-HP-YvJ"/>
+                        <outlet property="sendBtn" destination="5DS-sl-PCw" id="tlZ-aI-ael"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0E-e7-vQZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79" y="-9"/>
+            <point key="canvasLocation" x="77.599999999999994" y="-9.4452773613193415"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="send" width="30" height="31"/>
+    </resources>
 </document>

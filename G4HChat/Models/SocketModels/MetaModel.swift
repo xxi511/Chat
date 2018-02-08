@@ -75,12 +75,13 @@ struct MetaInfo: Codable {
     var topic: String?
     var updated: Date
     var online: Bool?
+    var user: String?
 
     private enum CodingKeys: String, CodingKey {
         case acs
         case privateStr = "private"
         case publicInfo = "public"
-        case read, recv, seq, topic, updated, online
+        case read, recv, seq, topic, updated, online, user
     }
 
     public init(from decoder: Decoder) throws {
@@ -95,6 +96,7 @@ struct MetaInfo: Codable {
         let tsStr = try! json.decode(String.self, forKey: .updated)
         self.updated = tsStr.iSODate()
         self.online = try? json.decode(Bool.self, forKey: .online)
+        self.user = try? json.decode(String.self, forKey: .user)
     }
 }
 

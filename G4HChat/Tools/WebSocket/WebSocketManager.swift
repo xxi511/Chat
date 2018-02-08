@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Starscream
+import MobileCoreServices
 
 class WebSocketManager {
 
@@ -83,7 +84,7 @@ class WebSocketManager {
 // MARK: echo
 extension WebSocketManager: WebSocketAdvancedDelegate {
     func websocketDidConnect(socket: WebSocket) {
-        print("WebSocket Open")
+        print("WebSocket connection Open")
         self.sayHi()
     }
 
@@ -117,11 +118,11 @@ extension WebSocketManager: WebSocketAdvancedDelegate {
     }
 
     func websocketHttpUpgrade(socket: WebSocket, request: String) {
-        print("Websocket upgrade by request")
+        print("Websocket upgrade request info")
     }
 
     func websocketHttpUpgrade(socket: WebSocket, response: String) {
-        print("Websocket upgrade by response")
+        print("Websocket upgrade response info")
     }
 }
 

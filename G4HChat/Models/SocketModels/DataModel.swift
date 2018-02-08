@@ -12,11 +12,17 @@ struct DataModel: Codable {
 }
 
 struct DataVarModel: Codable {
+    enum messageType {
+        case text
+        case image
+        case UnKnow
+    }
     var content: DataContentModel
     var from: String
     var seq: Int
     var topic: String
     var ts: Date
+    var messageType: messageType
 
     private enum CodingKeys: String, CodingKey {
         case content, from, seq, topic, ts
@@ -26,14 +32,27 @@ struct DataVarModel: Codable {
         let json = try decoder.container(keyedBy: CodingKeys.self)
         if let contentStr = try? json.decode(String.self, forKey: .content) {
             self.content = DataContentModel(txt: contentStr)
+            self.messageType = .text
         } else {
             self.content = try! json.decode(DataContentModel.self, forKey: .content)
+            self.messageType = DataVarModel.getMessageType(content: self.content)
         }
         self.from = try! json.decode(String.self, forKey: .from)
         self.seq = try! json.decode(Int.self, forKey: .seq)
         self.topic = try! json.decode(String.self, forKey: .topic)
         let tsStr = try! json.decode(String.self, forKey: .ts)
         self.ts = tsStr.iSODate()
+    }
+
+    static private func getMessageType(content: DataContentModel) -> messageType {
+        guard let mime = content.ent![0].data.mime else {
+            return .text
+        }
+        if mime.contains("image") {
+            return .image
+        } else {
+            return .UnKnow
+        }
     }
 }
 
@@ -53,14 +72,16 @@ struct DataEntModel: Codable {
 }
 
 struct EntDataModel: Codable {
-    var mime: String
-    var name: String
-    var val: String
+    var mime: String?
+    var name: String?
+    var val: String?
     var height: Int?
     var width: Int?
+    var url: String?
 }
 
 struct DataFmtModel: Codable {
     var at: Int?
     var len: Int?
+    var key: Int?
 }
