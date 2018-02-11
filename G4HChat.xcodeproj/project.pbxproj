@@ -19,6 +19,8 @@
 		15C310EB2028AE6300B33978 /* ImageMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C310E92028AE6300B33978 /* ImageMsgCell.xib */; };
 		A31E956020138985009A929C /* CtrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31E955F20138985009A929C /* CtrlModel.swift */; };
 		A31E95622013A2A0009A929C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31E95612013A29F009A929C /* ToastSwiftFramework.framework */; };
+		A3559085202F2F3000168045 /* PubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3559084202F2F3000168045 /* PubModel.swift */; };
+		A3559087202F3FB000168045 /* UIImageEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3559086202F3FB000168045 /* UIImageEX.swift */; };
 		A384329B201C2D4F00C7BF03 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A384329A201C2D4F00C7BF03 /* Starscream.framework */; };
 		A384329D201C2D6300C7BF03 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A384329C201C2D6300C7BF03 /* RealmSwift.framework */; };
 		A38432A5201C3BF300C7BF03 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38432A4201C3BF300C7BF03 /* UserModel.swift */; };
@@ -58,6 +60,8 @@
 		15C310E92028AE6300B33978 /* ImageMsgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMsgCell.xib; sourceTree = "<group>"; };
 		A31E955F20138985009A929C /* CtrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CtrlModel.swift; sourceTree = "<group>"; };
 		A31E95612013A29F009A929C /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
+		A3559084202F2F3000168045 /* PubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubModel.swift; sourceTree = "<group>"; };
+		A3559086202F3FB000168045 /* UIImageEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageEX.swift; sourceTree = "<group>"; };
 		A384329A201C2D4F00C7BF03 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		A384329C201C2D6300C7BF03 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A384329E201C2D7600C7BF03 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 				A38432C1201CD2FD00C7BF03 /* ViewEX.swift */,
 				A3A3E1D1201D7AA40010EAA5 /* ColorEX.swift */,
 				15C310E520289A1E00B33978 /* DateEx.swift */,
+				A3559086202F3FB000168045 /* UIImageEX.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				1501B630202352A000872B8E /* DataModel.swift */,
 				A390ED37202613D4007E34EA /* LeaveModel.swift */,
 				A390ED3920261B25007E34EA /* GetModel.swift */,
+				A3559084202F2F3000168045 /* PubModel.swift */,
 			);
 			path = SocketModels;
 			sourceTree = "<group>";
@@ -409,7 +415,9 @@
 				A31E956020138985009A929C /* CtrlModel.swift in Sources */,
 				A3934740201245820072D520 /* Configure.swift in Sources */,
 				1501B631202352A000872B8E /* DataModel.swift in Sources */,
+				A3559087202F3FB000168045 /* UIImageEX.swift in Sources */,
 				A3A36A9B2013326600348F7B /* LoginModel.swift in Sources */,
+				A3559085202F2F3000168045 /* PubModel.swift in Sources */,
 				150C4F9B201E216E00244664 /* TextMsgCell.swift in Sources */,
 				A38432B6201C7F1400C7BF03 /* HomeVC.swift in Sources */,
 				A390ED38202613D4007E34EA /* LeaveModel.swift in Sources */,

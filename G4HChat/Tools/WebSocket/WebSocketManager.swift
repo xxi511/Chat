@@ -19,6 +19,7 @@ class WebSocketManager {
         case SubTopic
         case Leave
         case Get
+        case Pub
     }
 
     static let shard = WebSocketManager()
@@ -77,7 +78,28 @@ class WebSocketManager {
                  before: Int, limit: Int=24) {
         let getModel = GetModel(topic: topic, what: what,
                                 before: before, limit: limit)
-        self.send(model: getModel, type: .Get, id: getModel.data.id)
+        self.send(model: getModel, type: .Get, id: getModel.get.id)
+    }
+
+    func pubData<T: Codable>(topic: String, content: T,
+                             name: String?=nil) {
+
+        if let txt = content as? String {
+            let pubModel = PubModel(topic: topic, content: txt)
+            self.send(model: pubModel, type: .Pub,
+                      id: pubModel.pub.id)
+        } else if let img = content as? UIImage {
+            guard let base64 = img.base64Str() else {
+                let err = "Send message error"
+                self.delegate?.pubData(topic, error: err)
+                return
+            }
+            let data = DataContentModel(base64Img: base64,
+                                        size: img.size, name: name)
+            let pubModel = PubModel(topic: topic, content: data)
+            self.send(model: pubModel, type: .Pub,
+                      id: pubModel.pub.id)
+        }
     }
 }
 
@@ -149,6 +171,9 @@ extension WebSocketManager {
         case .Leave:
             print("Get Leave Response")
             self.handleLeave(res: res.ctrl)
+        case .Pub:
+            print("Get Pub Response")
+            self.handlePub(res: res.ctrl)
         }
     }
 
@@ -185,7 +210,8 @@ extension WebSocketManager {
                                    error: nil)
     }
 
-    private func handleSubcribeTopic(res: CtrlModel?, meta: MetaModel?) {
+    private func handleSubcribeTopic(res: CtrlModel?,
+                                     meta: MetaModel?) {
         
         if let res = res {
             let topic = res.ctrl.topic!
@@ -213,6 +239,14 @@ extension WebSocketManager {
     private func handleLeave(res: CtrlContent) {
         guard res.code == 200 else {
             self.leaveTopic(res.topic!)
+            return
+        }
+        self.msgRecord.removeValue(forKey: res.id)
+    }
+
+    private func handlePub(res: CtrlContent) {
+        guard res.code == 202 else {
+            self.delegate?.pubData(res.topic!, error: res.text)
             return
         }
         self.msgRecord.removeValue(forKey: res.id)

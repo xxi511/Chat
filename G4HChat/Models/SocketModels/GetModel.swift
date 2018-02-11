@@ -14,11 +14,11 @@ enum WhatEnum: String {
 }
 
 struct GetModel: Codable {
-    var data: GetContent
+    var get: GetContent
     public init(topic: String, what: [WhatEnum],
                 before: Int, limit: Int=24) {
-        self.data = GetContent(topic: topic, what: what,
-                               before: before, limit: limit)
+        self.get = GetContent(topic: topic, what: what,
+                              before: before, limit: limit)
     }
 }
 

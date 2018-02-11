@@ -18,6 +18,8 @@ class ChatVC: UIViewController {
     private var isFirst = true
     private var members = [MetaInfo]()
     private var messages = [DataVarModel]()
+    private var received = [DataVarModel]()
+    private var refresher = UIRefreshControl(frame: .zero)
 
     @IBOutlet var chatTable: UITableView!
     @IBOutlet var messageView: UIView!
@@ -31,6 +33,7 @@ class ChatVC: UIViewController {
         let vc = board.instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
         vc.topic = topic
         vc.members.removeAll()
+        vc.received.removeAll()
         return vc
     }
 
@@ -80,14 +83,7 @@ extension ChatVC: WebSocketProtocol {
         guard let what = ctrl.params?.what else {return}
         if what == "data" {
             self.socket.removeRecord(key: ctrl.id)
-            // update view
-            self.view.hideToastActivity()
-            self.chatTable.reloadData()
-            if self.messages.count > 0 {
-                let path = IndexPath(row: self.messages.count-1, section: 0)
-                self.chatTable.scrollToRow(at: path, at: .top, animated: false)
-            }
-
+            self.chatTableReload()
         }
     }
 
@@ -102,7 +98,7 @@ extension ChatVC: WebSocketProtocol {
     }
 
     func subcribeData(_ data: DataVarModel) {
-        self.messages.append(data)
+        self.received.append(data)
     }
 }
 
@@ -182,6 +178,10 @@ extension ChatVC {
         self.messageTextView.setCorner(radius: 5)
         self.messageTextView.setBoardColor(hex: "9a9a9a")
 
+        self.tableviewSetting()
+        }
+
+    private func tableviewSetting() {
         self.chatTable.tableFooterView = UIView(frame: CGRect.zero)
         self.chatTable.estimatedRowHeight = 50
         self.chatTable.rowHeight = UITableViewAutomaticDimension
@@ -192,6 +192,9 @@ extension ChatVC {
         let imgNib = ImageMsgCell.nib()
         self.chatTable.register(imgNib,
                                 forCellReuseIdentifier: self.imgCell)
+
+        self.refresher.addTarget(self, action: #selector(self.loadPreviusData), for: .valueChanged)
+        self.chatTable.addSubview(self.refresher)
     }
 
     private func setMessageBottom(height: CGFloat) {
@@ -210,6 +213,40 @@ extension ChatVC {
         guard let photo = member.publicInfo.photo else {
             return (#imageLiteral(resourceName: "avatar"), member.publicInfo.fn)
         }
-        return (photo.imgData.base64Image() ?? #imageLiteral(resourceName: "avatar"), member.publicInfo.fn)
+        return (photo.imgData.base64Image() ?? #imageLiteral(resourceName: "avatar"),
+                member.publicInfo.fn)
+    }
+
+    @objc private func loadPreviusData() {
+        guard self.messages.count > 0 else {
+            self.refresher.endRefreshing()
+            return
+        }
+        let seq = self.messages[0].seq
+        self.socket.GetData(topic: self.topic,
+                            what: [.data], before: seq)
+    }
+
+    private func chatTableReload() {
+        if self.refresher.isRefreshing {
+            self.messages = self.received + self.messages
+        } else {
+            self.messages = self.messages + self.received
+        }
+        
+        self.received.removeAll()
+        self.chatTable.reloadData()
+
+        if self.refresher.isRefreshing {
+            self.refresher.endRefreshing()
+        } else {
+            self.view.hideToastActivity()
+            if self.messages.count > 0 {
+                let path = IndexPath(row: self.messages.count-1,
+                                     section: 0)
+                self.chatTable.scrollToRow(at: path, at: .top,
+                                           animated: false)
+            }
+        }
     }
 }

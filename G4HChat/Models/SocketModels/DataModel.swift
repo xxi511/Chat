@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 struct DataModel: Codable {
     var data: DataVarModel
 }
@@ -64,20 +66,39 @@ struct DataContentModel: Codable {
     public init(txt: String) {
         self.txt = txt
     }
+
+    public init(base64Img: String, size: CGSize, name: String?=nil) {
+        let data = EntDataModel(base64Img: base64Img,
+                                   size: size, name: name)
+        let entData = DataEntModel(data: data, tp: "IM")
+        let fmtData = DataFmtModel(at: nil, len: 1, key: nil)
+        self.ent = [entData]
+        self.fmt = [fmtData]
+        self.txt = " "
+    }
 }
 
 struct DataEntModel: Codable {
     var data: EntDataModel
     var tp: String
+
 }
 
 struct EntDataModel: Codable {
     var mime: String?
     var name: String?
     var val: String?
-    var height: Int?
-    var width: Int?
+    var height: CGFloat?
+    var width: CGFloat?
     var url: String?
+
+    public init(base64Img: String, size: CGSize, name: String?=nil) {
+        self.mime = "image/png"
+        self.name = (name == nil) ? UUID().uuidString: name
+        self.val = base64Img
+        self.height = size.height
+        self.width = size.width
+    }
 }
 
 struct DataFmtModel: Codable {

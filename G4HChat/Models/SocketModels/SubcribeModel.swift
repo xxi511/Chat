@@ -11,7 +11,8 @@ struct SubcribeModel: Codable {
     var sub: SubcribeContent
 
     init(topic: String, what: [WhatEnum], data: SubDataModel?=nil) {
-        self.sub = SubcribeContent(topic: topic, what: what)
+        self.sub = SubcribeContent(topic: topic, what: what,
+                                   data: data)
     }
 }
 
