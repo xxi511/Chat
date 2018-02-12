@@ -11,6 +11,8 @@ enum WhatEnum: String {
     case data = "data"
     case sub = "sub"
     case desc = "desc"
+    case read = "read"
+    case recv = "recv"
 }
 
 struct GetModel: Codable {

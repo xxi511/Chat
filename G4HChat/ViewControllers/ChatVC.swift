@@ -12,6 +12,9 @@ class ChatVC: UIViewController {
 
     private let textCell = "textCell"
     private let imgCell = "imgCell"
+    private enum UpdateStatus {
+        case Init, Previus, Standby
+    }
 
     private var topic: String = ""
     private let socket = WebSocketManager.shard
@@ -20,12 +23,14 @@ class ChatVC: UIViewController {
     private var messages = [DataVarModel]()
     private var received = [DataVarModel]()
     private var refresher = UIRefreshControl(frame: .zero)
+    private var status: UpdateStatus = .Init
 
-    @IBOutlet var chatTable: UITableView!
-    @IBOutlet var messageView: UIView!
-    @IBOutlet var messageViewBottom: NSLayoutConstraint!
-    @IBOutlet var messageTextView: UITextView!
-    @IBOutlet var sendBtn: UIButton!
+    @IBOutlet private var chatTable: UITableView!
+    @IBOutlet private var messageView: UIView!
+    @IBOutlet private var messageViewBottom: NSLayoutConstraint!
+    @IBOutlet private var messageTextView: UITextView!
+    @IBOutlet private var messageTextViewH: NSLayoutConstraint!
+    @IBOutlet private var sendBtn: UIButton!
 
 
     class func instance(_ topic: String) -> ChatVC {
@@ -67,7 +72,11 @@ class ChatVC: UIViewController {
     }
 
     @IBAction func clickSendMsgBtn(_ sender: Any) {
-
+        let txt = self.messageTextView.text
+        guard txt != "" || txt != "Aa" else {return}
+        self.socket.pubData(topic: self.topic, content: txt)
+        self.defaultText()
+        self.messageTextView.endEditing(true)
     }
 
 }
@@ -98,7 +107,11 @@ extension ChatVC: WebSocketProtocol {
     }
 
     func subcribeData(_ data: DataVarModel) {
-        self.received.append(data)
+        if self.status == .Standby {
+            self.insertData(data)
+        } else {
+            self.received.append(data)
+        }
     }
 }
 
@@ -153,9 +166,44 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
             cell.name.text = name
         }
         let img = data.content.ent![0].data.val?.base64Image() ?? #imageLiteral(resourceName: "errorImage")
-        cell.photo.image = img
         cell.setAppropriateSize(origin: img.size)
+        cell.photo.image = img
         cell.timeLabel.text = data.ts.toStr(format: "HH:mm a")
+    }
+}
+
+extension ChatVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.gray {
+            textView.text = ""
+            textView.textColor = UIColor.black
+        }
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if textView.text == "" || textView.text == "Aa" {
+            self.defaultText()
+        }
+    }
+
+    func textViewDidChange(_ textView: UITextView) {
+        let size = textView.bounds.size
+        let estimate = CGSize(width: size.width,
+                              height: CGFloat.greatestFiniteMagnitude)
+        let prefer = textView.sizeThatFits(estimate)
+        let lineHeight = textView.font?.lineHeight ?? 17.9
+        let max = lineHeight * 3
+        if prefer.height <= 33 {
+            self.messageTextViewH.constant = 33
+            textView.isScrollEnabled = false
+        } else if prefer.height > max {
+            self.messageTextViewH.constant = max
+            textView.isScrollEnabled = true
+        } else {
+            self.messageTextViewH.constant = prefer.height
+            textView.isScrollEnabled = false
+        }
     }
 }
 
@@ -177,6 +225,7 @@ extension ChatVC {
     private func viewLayoutInit() {
         self.messageTextView.setCorner(radius: 5)
         self.messageTextView.setBoardColor(hex: "9a9a9a")
+        self.defaultText()
 
         self.tableviewSetting()
         }
@@ -202,6 +251,11 @@ extension ChatVC {
             self.messageViewBottom.constant = height
         }
     }
+
+    private func defaultText() {
+        self.messageTextView.text = "Aa"
+        self.messageTextView.textColor = UIColor.gray
+    }
 }
 
 // MARK: Funcs
@@ -223,6 +277,7 @@ extension ChatVC {
             return
         }
         let seq = self.messages[0].seq
+        self.status = .Previus
         self.socket.GetData(topic: self.topic,
                             what: [.data], before: seq)
     }
@@ -233,12 +288,16 @@ extension ChatVC {
         } else {
             self.messages = self.messages + self.received
         }
-        
-        self.received.removeAll()
+
         self.chatTable.reloadData()
 
         if self.refresher.isRefreshing {
             self.refresher.endRefreshing()
+            let idx = self.received.count
+            let path = IndexPath(row: idx-1,
+                                 section: 0)
+            self.chatTable.scrollToRow(at: path, at: .top,
+                                       animated: false)
         } else {
             self.view.hideToastActivity()
             if self.messages.count > 0 {
@@ -247,6 +306,46 @@ extension ChatVC {
                 self.chatTable.scrollToRow(at: path, at: .top,
                                            animated: false)
             }
+        }
+
+        self.received.removeAll()
+        self.status = .Standby
+    }
+
+    private func insertData(_ data: DataVarModel) {
+        guard let last = self.messages.filter({$0.seq <= data.seq}).last else {
+            self.messages.append(data)
+            let idx = self.messages.count - 1
+            let path = IndexPath(row: idx, section: 0)
+            self.chatTable.beginUpdates()
+            self.chatTable.insertRows(at: [path], with: .fade)
+            self.chatTable.endUpdates()
+            self.chatTable.scrollToRow(at: path, at: .top, animated: true)
+            self.sendNote(seq: data.seq)
+            return
+        }
+
+        if last.seq < data.seq {
+            let idx = self.messages.index(where: {$0.seq == last.seq})!
+            self.messages.insert(data, at: idx+1)
+            let path = IndexPath(row: idx+1, section: 0)
+            self.chatTable.beginUpdates()
+            self.chatTable.insertRows(at: [path], with: .fade)
+            self.chatTable.endUpdates()
+            self.chatTable.scrollToRow(at: path, at: .top, animated: true)
+            self.sendNote(seq: data.seq)
+        }
+    }
+
+    private func sendNote(seq: Int, isRead: Bool=true) {
+        let recv = NoteModel(topic: self.topic,
+                             what: .recv, seq: seq)
+        self.socket.sendNote(recv)
+
+        if isRead {
+            let read = NoteModel(topic: self.topic,
+                                 what: .read, seq: seq)
+            self.socket.sendNote(read)
         }
     }
 }

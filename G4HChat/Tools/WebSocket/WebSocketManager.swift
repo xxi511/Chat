@@ -20,6 +20,7 @@ class WebSocketManager {
         case Leave
         case Get
         case Pub
+        case Note
     }
 
     static let shard = WebSocketManager()
@@ -44,9 +45,11 @@ class WebSocketManager {
     }
 
     func send<T: Encodable>(model: T, type: MessageType,
-                             id: String) {
+                             id: String?) {
         let data = try! JSONEncoder().encode(model)
-        self.msgRecord[id] = type
+        if id != nil {
+            self.msgRecord[id!] = type
+        }
         self.ws.write(data: data)
     }
 
@@ -100,6 +103,10 @@ class WebSocketManager {
             self.send(model: pubModel, type: .Pub,
                       id: pubModel.pub.id)
         }
+    }
+
+    func sendNote(_ model: NoteModel) {
+        self.send(model: model, type: .Note, id: nil)
     }
 }
 
@@ -174,6 +181,7 @@ extension WebSocketManager {
         case .Pub:
             print("Get Pub Response")
             self.handlePub(res: res.ctrl)
+        default: return
         }
     }
 
@@ -234,7 +242,6 @@ extension WebSocketManager {
             }
         }
     }
-
 
     private func handleLeave(res: CtrlContent) {
         guard res.code == 200 else {

@@ -15,8 +15,8 @@ class ImageMsgCell: UITableViewCell {
     @IBOutlet var photo: UIImageView!
     @IBOutlet var timeLabel: UILabel!
 
-    @IBOutlet private var photoWidth: NSLayoutConstraint!
-    @IBOutlet private var photoHeight: NSLayoutConstraint!
+    private var photoWidth: NSLayoutConstraint?
+    private var photoHeight: NSLayoutConstraint?
     private var timeEdge: NSLayoutConstraint?
     private var photoEdge: NSLayoutConstraint?
     private var photoTop: NSLayoutConstraint?
@@ -100,19 +100,40 @@ class ImageMsgCell: UITableViewCell {
     }
 
     func setAppropriateSize(origin: CGSize) {
+        if self.photoWidth != nil {
+            self.photo.removeConstraints([self.photoWidth!, self.photoHeight!])
+        }
+
         let size = UIScreen.main.bounds.size
         let maxH = size.height * 0.5
         let maxW = size.width * 0.7
         let factor = origin.width / origin.height
+        var w: CGFloat = 0
+        var h: CGFloat = 0
         if origin.height <= maxH && origin.width <= maxW {
-            self.photoWidth.constant = origin.width
-            self.photoHeight.constant = origin.height
+            w = origin.width
+            h = origin.height
         } else if origin.height < origin.width {
-            self.photoWidth.constant = maxW
-            self.photoHeight.constant = maxW / factor
+            w = maxW
+            h = maxW / factor
         } else {
-            self.photoHeight.constant = maxH
-            self.photoWidth.constant = factor * maxH
+            h = maxH
+            w = factor * maxH
         }
+
+        self.photoWidth = NSLayoutConstraint(item: self.photo,
+                                             attribute: .width,
+                                             relatedBy: .equal,
+                                             toItem: nil,
+                                             attribute: .notAnAttribute,
+                                             multiplier: 1, constant: w)
+        self.photoHeight = NSLayoutConstraint(item: self.photo,
+                                             attribute: .height,
+                                             relatedBy: .equal,
+                                             toItem: nil,
+                                             attribute: .notAnAttribute,
+                                             multiplier: 1, constant: h)
+        self.photoHeight?.priority = UILayoutPriority(rawValue: 999)
+        self.photo.addConstraints([self.photoWidth!, self.photoHeight!])
     }
 }
