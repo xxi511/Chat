@@ -17,7 +17,10 @@
 		15C310E620289A1E00B33978 /* DateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C310E520289A1E00B33978 /* DateEx.swift */; };
 		15C310EA2028AE6300B33978 /* ImageMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C310E82028AE6300B33978 /* ImageMsgCell.swift */; };
 		15C310EB2028AE6300B33978 /* ImageMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C310E92028AE6300B33978 /* ImageMsgCell.xib */; };
+		15D750F320332838001B5828 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D750F220332838001B5828 /* Photos.framework */; };
+		15D750F8203332DB001B5828 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15D750FA203332DB001B5828 /* InfoPlist.strings */; };
 		15E17CF82031CFCE00A4A492 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E17CF72031CFCE00A4A492 /* NoteModel.swift */; };
+		15E17CFC2031D59F00A4A492 /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E17CFB2031D59F00A4A492 /* PhotoVC.swift */; };
 		A31E956020138985009A929C /* CtrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31E955F20138985009A929C /* CtrlModel.swift */; };
 		A31E95622013A2A0009A929C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31E95612013A29F009A929C /* ToastSwiftFramework.framework */; };
 		A3559085202F2F3000168045 /* PubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3559084202F2F3000168045 /* PubModel.swift */; };
@@ -59,7 +62,14 @@
 		15C310E520289A1E00B33978 /* DateEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEx.swift; sourceTree = "<group>"; };
 		15C310E82028AE6300B33978 /* ImageMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMsgCell.swift; sourceTree = "<group>"; };
 		15C310E92028AE6300B33978 /* ImageMsgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMsgCell.xib; sourceTree = "<group>"; };
+		15D750F220332838001B5828 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		15D750F42033328E001B5828 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		15D750F52033328E001B5828 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		15D750F9203332DB001B5828 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		15D750FB203332DF001B5828 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15E17CF72031CFCE00A4A492 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		15E17CF92031D58600A4A492 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		15E17CFB2031D59F00A4A492 /* PhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		A31E955F20138985009A929C /* CtrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CtrlModel.swift; sourceTree = "<group>"; };
 		A31E95612013A29F009A929C /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		A3559084202F2F3000168045 /* PubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubModel.swift; sourceTree = "<group>"; };
@@ -101,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D750F320332838001B5828 /* Photos.framework in Frameworks */,
 				1542072F2029F47B008C26B1 /* SwiftWebSocket.framework in Frameworks */,
 				1556C4302028B54800431A90 /* MobileCoreServices.framework in Frameworks */,
 				A384329D201C2D6300C7BF03 /* RealmSwift.framework in Frameworks */,
@@ -153,6 +164,7 @@
 				A3DCCFA6201237D1002A6C5F /* LoginVC.swift */,
 				A38432B5201C7F1400C7BF03 /* HomeVC.swift */,
 				1501B6322023544100872B8E /* ChatVC.swift */,
+				15E17CFB2031D59F00A4A492 /* PhotoVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -172,6 +184,7 @@
 				A3DCCFAB201237D1002A6C5F /* Assets.xcassets */,
 				A3DCCFAD201237D1002A6C5F /* LaunchScreen.storyboard */,
 				A3DCCFB0201237D1002A6C5F /* Info.plist */,
+				15D750FA203332DB001B5828 /* InfoPlist.strings */,
 			);
 			path = "Support files";
 			sourceTree = "<group>";
@@ -197,6 +210,8 @@
 		A393473520123E620072D520 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15D750F220332838001B5828 /* Photos.framework */,
+				15E17CF92031D58600A4A492 /* AssetsLibrary.framework */,
 				1556C42F2028B54800431A90 /* MobileCoreServices.framework */,
 				A384329E201C2D7600C7BF03 /* Realm.framework */,
 				A384329C201C2D6300C7BF03 /* RealmSwift.framework */,
@@ -350,6 +365,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = A3DCCF98201237D0002A6C5F;
 			productRefGroup = A3DCCFA2201237D1002A6C5F /* Products */;
@@ -367,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C310EB2028AE6300B33978 /* ImageMsgCell.xib in Resources */,
+				15D750F8203332DB001B5828 /* InfoPlist.strings in Resources */,
 				1501B6352023545500872B8E /* Chat.storyboard in Resources */,
 				A3DCCFAF201237D1002A6C5F /* LaunchScreen.storyboard in Resources */,
 				150C4F9C201E216E00244664 /* TextMsgCell.xib in Resources */,
@@ -415,6 +432,7 @@
 				A3A3E1D2201D7AA50010EAA5 /* ColorEX.swift in Sources */,
 				A38432BA201CB8DC00C7BF03 /* MetaModel.swift in Sources */,
 				A38432AB201C74C300C7BF03 /* ViewControllerEX.swift in Sources */,
+				15E17CFC2031D59F00A4A492 /* PhotoVC.swift in Sources */,
 				A31E956020138985009A929C /* CtrlModel.swift in Sources */,
 				A3934740201245820072D520 /* Configure.swift in Sources */,
 				1501B631202352A000872B8E /* DataModel.swift in Sources */,
@@ -446,10 +464,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		15D750FA203332DB001B5828 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15D750F9203332DB001B5828 /* en */,
+				15D750FB203332DF001B5828 /* nl */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		A3DCCFA8201237D1002A6C5F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A3DCCFA9201237D1002A6C5F /* Base */,
+				15D750F42033328E001B5828 /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -458,6 +486,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A3DCCFAE201237D1002A6C5F /* Base */,
+				15D750F52033328E001B5828 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -469,6 +498,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -526,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

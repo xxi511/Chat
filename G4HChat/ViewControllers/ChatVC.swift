@@ -16,6 +16,10 @@ class ChatVC: UIViewController {
         case Init, Previus, Standby
     }
 
+    private enum BottomMode {
+        case Init, Photo, Keyboard
+    }
+
     private var topic: String = ""
     private let socket = WebSocketManager.shard
     private var isFirst = true
@@ -30,8 +34,12 @@ class ChatVC: UIViewController {
     @IBOutlet private var messageViewBottom: NSLayoutConstraint!
     @IBOutlet private var messageTextView: UITextView!
     @IBOutlet private var messageTextViewH: NSLayoutConstraint!
+    @IBOutlet var messageTextViewL: NSLayoutConstraint!
     @IBOutlet private var sendBtn: UIButton!
-
+    @IBOutlet var cameraBtn: UIButton!
+    @IBOutlet var photoBtn: UIButton!
+    @IBOutlet var photoView: UIView!
+    
 
     class func instance(_ topic: String) -> ChatVC {
         let board = UIStoryboard(name: "Chat", bundle: nil)
@@ -79,6 +87,20 @@ class ChatVC: UIViewController {
         self.messageTextView.endEditing(true)
     }
 
+    @IBAction func clickCameraBtn(_ sender: Any) {
+    }
+
+    @IBAction func clickPhotoBtn(_ sender: UIButton) {
+        self.messageTextView.endEditing(true)
+        if sender.isSelected == false {
+            sender.isSelected = true
+            self.setMessageBottom(height: 250, mode: .Photo)
+            self.preparePhotoVC()
+        } else {
+            sender.isSelected = false
+            self.setMessageBottom(height: 0, mode: .Init)
+        }
+    }
 }
 
 extension ChatVC: WebSocketProtocol {
@@ -115,6 +137,7 @@ extension ChatVC: WebSocketProtocol {
     }
 }
 
+// MARK: UITableView
 extension ChatVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messages.count
@@ -172,12 +195,15 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: UITextView
 extension ChatVC: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.gray {
             textView.text = ""
             textView.textColor = UIColor.black
         }
+        self.messageTextViewL.constant = 60
+        self.textViewDidChange(self.messageTextView)
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -185,6 +211,8 @@ extension ChatVC: UITextViewDelegate {
         if textView.text == "" || textView.text == "Aa" {
             self.defaultText()
         }
+        self.messageTextViewL.constant = 105
+        self.messageTextViewH.constant = 34
     }
 
     func textViewDidChange(_ textView: UITextView) {
@@ -194,8 +222,8 @@ extension ChatVC: UITextViewDelegate {
         let prefer = textView.sizeThatFits(estimate)
         let lineHeight = textView.font?.lineHeight ?? 17.9
         let max = lineHeight * 3
-        if prefer.height <= 33 {
-            self.messageTextViewH.constant = 33
+        if prefer.height <= 34 {
+            self.messageTextViewH.constant = 34
             textView.isScrollEnabled = false
         } else if prefer.height > max {
             self.messageTextViewH.constant = max
@@ -207,23 +235,30 @@ extension ChatVC: UITextViewDelegate {
     }
 }
 
+// MARK: PhotoVC Delegate
+extension ChatVC: PhotoVCDelegate {
+    func photoPermissionDenied() {
+        self.setMessageBottom(height: 0, mode: .Init)
+    }
+}
+
 // MARK: Notification
 extension ChatVC {
     @objc private func keyboardWillShow(noti: Notification) {
         let info = noti.userInfo!
         let size = info["UIKeyboardFrameEndUserInfoKey"] as! CGRect
-        self.setMessageBottom(height: size.height)
+        self.setMessageBottom(height: size.height, mode: .Keyboard)
     }
 
     @objc private func keyboardWillHide(noti: Notification) {
-        self.setMessageBottom(height: 0)
+        self.setMessageBottom(height: 0, mode: .Init)
     }
 }
 
 // MARK: Layout
 extension ChatVC {
     private func viewLayoutInit() {
-        self.messageTextView.setCorner(radius: 5)
+        self.messageTextView.setCorner(radius: 17)
         self.messageTextView.setBoardColor(hex: "9a9a9a")
         self.defaultText()
 
@@ -244,11 +279,33 @@ extension ChatVC {
 
         self.refresher.addTarget(self, action: #selector(self.loadPreviusData), for: .valueChanged)
         self.chatTable.addSubview(self.refresher)
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapScreen))
+        self.chatTable.addGestureRecognizer(tap)
     }
 
-    private func setMessageBottom(height: CGFloat) {
+    private func setMessageBottom(height: CGFloat,
+                                  mode: BottomMode) {
+        self.messageViewBottom.constant = height
+
+        self.photoBtn.isHidden = false
+        self.photoBtn.tintColor = UIColor.black
+        switch mode {
+        case .Init:
+            self.photoBtn.isSelected = false
+            self.messageTextViewL.constant = 105
+        case .Keyboard:
+            self.photoBtn.isSelected = false
+            self.photoBtn.isHidden = true
+            self.messageTextViewL.constant = 60
+        case .Photo:
+            self.photoBtn.isSelected = true
+            self.photoBtn.tintColor = UIColor.green
+            self.messageTextViewL.constant = 105
+        }
+
         UIView.animate(withDuration: 0.25) {
-            self.messageViewBottom.constant = height
+            self.view.layoutIfNeeded()
         }
     }
 
@@ -269,6 +326,11 @@ extension ChatVC {
         }
         return (photo.imgData.base64Image() ?? #imageLiteral(resourceName: "avatar"),
                 member.publicInfo.fn)
+    }
+
+    @objc private func tapScreen() {
+        self.messageTextView.endEditing(true)
+        self.setMessageBottom(height: 0, mode: .Init)
     }
 
     @objc private func loadPreviusData() {
@@ -347,5 +409,15 @@ extension ChatVC {
                                  what: .read, seq: seq)
             self.socket.sendNote(read)
         }
+    }
+
+    private func preparePhotoVC() {
+
+        guard let vc = self.childViewControllers.first(where: {$0 is PhotoVC})
+            as? PhotoVC  else {
+            return
+        }
+        vc.delegate = self
+        vc.prepareForShow()
     }
 }

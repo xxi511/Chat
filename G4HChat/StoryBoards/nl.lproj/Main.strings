@@ -1,0 +1,15 @@
+
+/* Class = "UITabBarItem"; title = "Item 1"; ObjectID = "G2X-Sw-ADS"; */
+"G2X-Sw-ADS.title" = "Item 1";
+
+/* Class = "UITextField"; text = "alice"; ObjectID = "JOm-3u-LA0"; */
+"JOm-3u-LA0.text" = "alice";
+
+/* Class = "UITextField"; text = "alice123"; ObjectID = "R5z-4b-rlA"; */
+"R5z-4b-rlA.text" = "alice123";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "lCV-s4-GEw"; */
+"lCV-s4-GEw.title" = "Item 2";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "ly3-Vf-8Ef"; */
+"ly3-Vf-8Ef.normalTitle" = "Login";
