@@ -106,7 +106,7 @@ class ImageMsgCell: UITableViewCell {
 
         let size = UIScreen.main.bounds.size
         let maxH = size.height * 0.5
-        let maxW = size.width * 0.7
+        let maxW = size.width * 0.6
         let factor = origin.width / origin.height
         var w: CGFloat = 0
         var h: CGFloat = 0

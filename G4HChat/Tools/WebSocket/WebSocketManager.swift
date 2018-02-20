@@ -84,21 +84,26 @@ class WebSocketManager {
         self.send(model: getModel, type: .Get, id: getModel.get.id)
     }
 
-    func pubData<T: Codable>(topic: String, content: T,
-                             name: String?=nil) {
+    func pubData(topic: String, content: Any, name: String?=nil) {
 
         if let txt = content as? String {
             let pubModel = PubModel(topic: topic, content: txt)
             self.send(model: pubModel, type: .Pub,
                       id: pubModel.pub.id)
         } else if let img = content as? UIImage {
-            guard let base64 = img.base64Str() else {
+            guard let resized = img.resizeIfNeed(size: CGSize(width: 600, height: 600)) else {
+                let err = "Send message error"
+                self.delegate?.pubData(topic, error: err)
+                return
+            }
+            guard let base64 = resized.base64Str() else {
                 let err = "Send message error"
                 self.delegate?.pubData(topic, error: err)
                 return
             }
             let data = DataContentModel(base64Img: base64,
-                                        size: img.size, name: name)
+                                        size: resized.size,
+                                        name: name)
             let pubModel = PubModel(topic: topic, content: data)
             self.send(model: pubModel, type: .Pub,
                       id: pubModel.pub.id)

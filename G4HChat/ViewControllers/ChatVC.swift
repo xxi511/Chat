@@ -94,7 +94,7 @@ class ChatVC: UIViewController {
         self.messageTextView.endEditing(true)
         if sender.isSelected == false {
             sender.isSelected = true
-            self.setMessageBottom(height: 250, mode: .Photo)
+            self.setMessageBottom(height: 240, mode: .Photo)
             self.preparePhotoVC()
         } else {
             sender.isSelected = false
@@ -239,6 +239,10 @@ extension ChatVC: UITextViewDelegate {
 extension ChatVC: PhotoVCDelegate {
     func photoPermissionDenied() {
         self.setMessageBottom(height: 0, mode: .Init)
+    }
+
+    func wantToSendImage(image: UIImage) {
+        self.socket.pubData(topic: self.topic, content: image)
     }
 }
 
