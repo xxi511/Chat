@@ -82,12 +82,23 @@ class ChatVC: UIViewController {
     @IBAction func clickSendMsgBtn(_ sender: Any) {
         let txt = self.messageTextView.text
         guard txt != "" || txt != "Aa" else {return}
-        self.socket.pubData(topic: self.topic, content: txt)
+        self.socket.pubData(topic: self.topic, content: txt!)
         self.defaultText()
         self.messageTextView.endEditing(true)
     }
 
     @IBAction func clickCameraBtn(_ sender: Any) {
+        self.setMessageBottom(height: 0, mode: .Init)
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            self.noticeAlert(title: "Error",
+                             message: "Camera is not available", isPop: false)
+            return
+        }
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .camera
+        picker.allowsEditing = false
+        self.present(picker, animated: true, completion: nil)
     }
 
     @IBAction func clickPhotoBtn(_ sender: UIButton) {
@@ -133,6 +144,7 @@ extension ChatVC: WebSocketProtocol {
             self.insertData(data)
         } else {
             self.received.append(data)
+            print(self.received.count)
         }
     }
 }
@@ -232,6 +244,16 @@ extension ChatVC: UITextViewDelegate {
             self.messageTextViewH.constant = prefer.height
             textView.isScrollEnabled = false
         }
+    }
+}
+
+// MARK: UIImagePicker
+extension ChatVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let img = info["UIImagePickerControllerOriginalImage"] as? UIImage else {
+            return
+        }
+        self.socket.pubData(topic: self.topic, content: img)
     }
 }
 

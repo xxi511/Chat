@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 extension UIViewController {
-    func noticeAlert(title: String?, message: String?) {
+    func noticeAlert(title: String?, message: String?, isPop: Bool=true) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default) { _ in
-            guard self.navigationController != nil else {return}
+            guard self.navigationController != nil && isPop else {return}
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(ok)

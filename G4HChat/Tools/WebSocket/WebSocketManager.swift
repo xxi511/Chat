@@ -123,7 +123,7 @@ extension WebSocketManager: WebSocketAdvancedDelegate {
     }
 
     func websocketDidDisconnect(socket: WebSocket, error: Error?) {
-        print("WebSocket disconnect")
+        print("WebSocket disconnect:\(error?.localizedDescription)")
         self.ws.connect()
     }
 

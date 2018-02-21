@@ -21,7 +21,7 @@ class PhotoVC: UIViewController {
 
     private let photoCell = "photoCell"
     private let targetSize = CGSize(width: 240, height: 240)
-    private let manager = PHCachingImageManager()
+    private var manager: PHCachingImageManager?
     private var photos: PHFetchResult<PHAsset>?
     private var previousPreheatRect = CGRect.zero
     private var selectedPath: IndexPath?
@@ -29,9 +29,8 @@ class PhotoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        PHPhotoLibrary.shared().register(self)
+
         self.photoCollection.register(PhotoDisplayCell.nib(), forCellWithReuseIdentifier: self.photoCell)
-        self.resetCachedAssets()
     }
 
     deinit {
@@ -57,7 +56,7 @@ extension PhotoVC: UICollectionViewDelegate, UICollectionViewDataSource, PhotoDi
         cell.delegate = self
         cell.indexPath = indexPath
         cell.representedAssetIdentifier = (asset?.localIdentifier)!
-        self.manager.requestImage(for: asset!, targetSize: self.targetSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+        self.manager!.requestImage(for: asset!, targetSize: self.targetSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
             if cell.representedAssetIdentifier == asset?.localIdentifier && image != nil {
                 cell.thumbnailImage.image = image
             }
@@ -139,7 +138,7 @@ extension PhotoVC: PHPhotoLibraryChangeObserver {
     }
 
     private func resetCachedAssets() {
-        self.manager.stopCachingImagesForAllAssets()
+        self.manager!.stopCachingImagesForAllAssets()
         previousPreheatRect = .zero
     }
 
@@ -166,9 +165,9 @@ extension PhotoVC: PHPhotoLibraryChangeObserver {
             .map { indexPath in self.photos!.object(at: indexPath.item) }
 
         // Update the assets the PHCachingImageManager is caching.
-        self.manager.startCachingImages(for: addedAssets,
+        self.manager!.startCachingImages(for: addedAssets,
                                         targetSize: self.targetSize, contentMode: .aspectFill, options: nil)
-        self.manager.stopCachingImages(for: removedAssets,
+        self.manager!.stopCachingImages(for: removedAssets,
                                        targetSize: self.targetSize, contentMode: .aspectFill, options: nil)
 
         // Store the preheat rect to compare against in the future.
@@ -204,8 +203,6 @@ extension PhotoVC: PHPhotoLibraryChangeObserver {
 
 // MARK: UIScrollView
 extension PhotoVC: UIScrollViewDelegate {
-    // MARK: UIScrollView
-
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.updateCachedAssets()
     }
@@ -217,6 +214,9 @@ extension PhotoVC {
         // Run when the view will show
         // In chatroom, this view is not visible at begining
         guard self.checkPermission() else {return}
+        self.manager = PHCachingImageManager()
+        PHPhotoLibrary.shared().register(self)
+        self.resetCachedAssets()
         self.fetchImages()
     }
 
@@ -227,7 +227,7 @@ extension PhotoVC {
         } else if status == .notDetermined {
             PHPhotoLibrary.requestAuthorization({ (auth) in
                 if auth == .authorized {
-                    //
+                    self.prepareForShow()
                 } else {
                     self.delegate?.photoPermissionDenied()
                 }

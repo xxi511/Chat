@@ -1,1 +1,2 @@
 "NSPhotoLibraryUsageDescription" = "Need permission to access photo library";
+"NSCameraUsageDescription" = "Need permission to access camera";
